@@ -92,6 +92,7 @@ class _drawer_pageState extends State<drawer_page> {
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context) => setting()));
                 },
+
               ),
               ListTile(
                 leading: Icon(Icons.error_outline_outlined),
