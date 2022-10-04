@@ -1,17 +1,17 @@
 
 
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class safety extends StatelessWidget {
-  const safety({Key? key}) : super(key: key);
+class faq_screen extends StatelessWidget {
+  const faq_screen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        title: Text("Safety"),
+        title: Text("FAQ"),
       ),
     );
   }
