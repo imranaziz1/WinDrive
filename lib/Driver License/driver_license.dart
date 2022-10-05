@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-class driverLicense extends StatelessWidget {
-  const driverLicense({Key? key}) : super(key: key);
+class DriverLicense extends StatelessWidget {
+  const DriverLicense({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

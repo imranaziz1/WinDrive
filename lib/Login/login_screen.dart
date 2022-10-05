@@ -27,6 +27,12 @@ class _LoginScreenState extends State<LoginScreen> {
     // myController.dispose();
     super.dispose();
   }
+  @override
+  void initState() {
+
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,11 +89,12 @@ class _LoginScreenState extends State<LoginScreen> {
                        initialValue: number,
                        hintText: "Enter your phone number",
                        textFieldController: controller,
-                       spaceBetweenSelectorAndTextField: 0.0,
+                       spaceBetweenSelectorAndTextField: 0,
                         countrySelectorScrollControlled: true,
                        textAlign: TextAlign.start,
                        formatInput: false,
                        keyboardType: TextInputType.numberWithOptions(
+
                            signed: true, decimal: true),
                        onSaved: (PhoneNumber number) {
                          print('On Saved: $number');
@@ -100,6 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                      height: 55,
                      child: ElevatedButton(
                        onPressed: () {
+                         print(controller);
                          Navigator.push(context, MaterialPageRoute(builder: (context)=>CityLocationPicker()));
 
                        },
@@ -112,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                          ),
                        ),
                        style: ElevatedButton.styleFrom(
-                         primary: Colors.pink.shade400,
+                         primary: Colors.teal,
                          shape: RoundedRectangleBorder(
                            borderRadius: BorderRadius.circular(100),
                          ),
@@ -124,53 +132,57 @@ class _LoginScreenState extends State<LoginScreen> {
              ),
              Positioned(
                bottom: 10,
-               child:  Container(
-               width: 344,
-               child: RichText(
-                 textAlign: TextAlign.center,
-                 text: TextSpan(
-                   children: [
-                     TextSpan(
-                       text: 'By tapping "Next" you agree to ',
-                       style: GoogleFonts.dmSans(
-                         fontSize: 12,
-                         fontWeight: FontWeight.w500,
-                         color: Color(0xffA9A9AA),
+               left: 50,
+               right: 50,
+               child:  Center(
+                 child: Container(
+                 width: 344,
+                 child: RichText(
+                   textAlign: TextAlign.center,
+                   text: TextSpan(
+                     children: [
+                       TextSpan(
+                         text: 'By tapping "Next" you agree to ',
+                         style: GoogleFonts.dmSans(
+                           fontSize: 12,
+                           fontWeight: FontWeight.w500,
+                           color: Color(0xffA9A9AA),
+                         ),
                        ),
-                     ),
-                     TextSpan(
-                       text: 'Terms & Conditions',
-                       style: GoogleFonts.dmSans(
-                         fontSize: 12,
-                         fontWeight: FontWeight.w500,
-                         color: Colors.blue,
-                         decoration: TextDecoration.underline,
+                       TextSpan(
+                         text: 'Terms & Conditions',
+                         style: GoogleFonts.dmSans(
+                           fontSize: 12,
+                           fontWeight: FontWeight.w500,
+                           color: Colors.blue,
+                           decoration: TextDecoration.underline,
+                         ),
+                         recognizer: TapGestureRecognizer()..onTap = () {},
                        ),
-                       recognizer: TapGestureRecognizer()..onTap = () {},
-                     ),
-                     TextSpan(
-                       text: ' and ',
-                       style: GoogleFonts.dmSans(
-                         fontSize: 12,
-                         fontWeight: FontWeight.w500,
-                         color: Color(0xffA9A9AA),
+                       TextSpan(
+                         text: ' and ',
+                         style: GoogleFonts.dmSans(
+                           fontSize: 12,
+                           fontWeight: FontWeight.w500,
+                           color: Color(0xffA9A9AA),
+                         ),
                        ),
-                     ),
-                     TextSpan(
-                       text: 'Privacy Policy',
-                       style: GoogleFonts.dmSans(
-                         fontSize: 12,
-                         fontWeight: FontWeight.w500,
-                         color: Colors.blue,
-                         decoration: TextDecoration.underline,
+                       TextSpan(
+                         text: 'Privacy Policy',
+                         style: GoogleFonts.dmSans(
+                           fontSize: 12,
+                           fontWeight: FontWeight.w500,
+                           color: Colors.blue,
+                           decoration: TextDecoration.underline,
+                         ),
+                         recognizer: TapGestureRecognizer()..onTap = () {},
                        ),
-                       recognizer: TapGestureRecognizer()..onTap = () {},
-                     ),
 
-                   ],
+                     ],
+                   ),
                  ),
-               ),
-             ),)
+             ),
+               ),)
             ],
           ),
         ),

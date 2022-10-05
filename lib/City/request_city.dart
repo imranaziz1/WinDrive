@@ -3,8 +3,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class request_city extends StatelessWidget {
-  const request_city({Key? key}) : super(key: key);
+class RequestCity extends StatelessWidget {
+  const RequestCity({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

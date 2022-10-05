@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../GoogleMaps/google_maps.dart';
+import '../main_page/home_page.dart';
 class SelectRole extends StatelessWidget {
   const SelectRole({Key? key}) : super(key: key);
 
@@ -51,7 +54,7 @@ class SelectRole extends StatelessWidget {
                   height: 55,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectRole()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
 
 
                     },
@@ -81,7 +84,6 @@ class SelectRole extends StatelessWidget {
                   height: 55,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectRole()));
 
 
                     },

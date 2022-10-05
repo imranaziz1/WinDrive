@@ -11,8 +11,9 @@ import 'package:image_picker/image_picker.dart';
 import '../CustomButtons/custom_button.dart';
 import '../Menu_drawer/drawer_page.dart';
 
-class basic_info extends StatefulWidget {
-  const basic_info({Key? key}) : super(key: key);
+
+class BasicInfo extends StatelessWidget {
+  const BasicInfo({Key? key}) : super(key: key);
 
   @override
   State<basic_info> createState() => _basic_infoState();

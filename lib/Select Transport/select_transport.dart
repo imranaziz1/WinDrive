@@ -7,12 +7,12 @@ import 'package:win_drive/Vehicle%20Brands/truck_brands.dart';
 
 import '../Vehicle Brands/moto_brands.dart';
 
-class selectTransport extends StatefulWidget {
-  const selectTransport({Key? key}) : super(key: key);
+class SelectTransport extends StatefulWidget {
+  const SelectTransport({Key? key}) : super(key: key);
   @override
-  State<selectTransport> createState() => _selectTransportState();
+  State<SelectTransport> createState() => _SelectTransportState();
 }
-class _selectTransportState extends State<selectTransport> {
+class _SelectTransportState extends State<SelectTransport> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +66,7 @@ class _selectTransportState extends State<selectTransport> {
                 ListTile(
                   trailing: IconButton(icon: const Icon(Icons.navigate_next), onPressed:() => Navigator.push(
                       context, MaterialPageRoute(
-                      builder: (context) => moto_brands())),),
+                      builder: (context) => MotoBrands())),),
                   visualDensity: const VisualDensity(vertical: 3),
                   dense: true,
                   title: const Text('Moter-bike'),
@@ -79,7 +79,7 @@ class _selectTransportState extends State<selectTransport> {
                 ListTile(
                   trailing: IconButton(icon: const Icon(Icons.navigate_next), onPressed:() => Navigator.push(
                       context, MaterialPageRoute(
-                      builder: (context) => car_brands())),),
+                      builder: (context) => CarBrands())),),
                   title: const Text('Car'),
                   leading:  const CircleAvatar(
                     foregroundImage: AssetImage('assets/sport_car.png',
@@ -93,7 +93,7 @@ class _selectTransportState extends State<selectTransport> {
                     icon: const Icon(Icons.navigate_next),
                     onPressed:() => Navigator.push(
                         context, MaterialPageRoute(
-                        builder: (context) => truck_brands())),),
+                        builder: (context) => TruckBrands())),),
 
                   title: const Text('Truck'),
 
@@ -110,7 +110,7 @@ class _selectTransportState extends State<selectTransport> {
 
                       context, MaterialPageRoute(
 
-                      builder: (context) => truck_brands())),),
+                      builder: (context) => TruckBrands())),),
 
                   title: const Text('high roof'),
 
@@ -126,7 +126,7 @@ class _selectTransportState extends State<selectTransport> {
 
                       context, MaterialPageRoute(
 
-                      builder: (context) => truck_brands())),),
+                      builder: (context) => TruckBrands())),),
 
                   title: const Text('We deliver'),
 

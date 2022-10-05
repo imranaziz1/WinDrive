@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:win_drive/basic_info/basic_info.dart';
 
-class car_brands extends StatelessWidget {
+class CarBrands extends StatelessWidget {
 
   final List brandList = [
     'BMW',
@@ -18,7 +18,7 @@ class car_brands extends StatelessWidget {
     'Ford',
     'Fiat'
   ];
-  car_brands({Key? key}) : super(key: key);
+  CarBrands({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class car_brands extends StatelessWidget {
                   title: Text(brandList[index]),
                   trailing: IconButton(onPressed: (){
                     Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => basic_info())
+                        builder: (context) => BasicInfo())
                     );
                   }, icon: Icon(Icons.navigate_next)),
                   leading:  CircleAvatar(
