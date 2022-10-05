@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:win_drive/basic_info/basic_info.dart';
 
 import 'Login/login_screen.dart';
 

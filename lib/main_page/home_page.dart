@@ -55,9 +55,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // drawer: Drawer(
-      //   child: isDrawer==true?DrawerPage():SizedBox(),
-      // ),
+
       key: _scaffoldKey,
       drawer:  new DrawerPage(),
       body: SafeArea(

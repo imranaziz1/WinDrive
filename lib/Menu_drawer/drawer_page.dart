@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:win_drive/City/request_city.dart';
+import 'package:win_drive/CustomButtons/custom_button.dart';
 import 'package:win_drive/FAQ/faq.dart';
 import 'package:win_drive/Intercity/intercity.dart';
 import 'package:win_drive/Registration/registration.dart';
@@ -13,6 +14,7 @@ import 'package:win_drive/Support/support.dart';
 import 'package:win_drive/Truck%20NEW/truck_new.dart';
 
 import '../basic_info/basic_info.dart';
+
 
 class DrawerPage extends StatefulWidget {
   const DrawerPage({Key? key}) : super(key: key);
@@ -50,7 +52,9 @@ class _DrawerPageState extends State<DrawerPage> {
                         ),
                       ),
                     ),
+                    child: SizedBox(height: 50,)
                   ),
+
                   Divider(
                     height: 5,
                     thickness: 2,
