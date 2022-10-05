@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:win_drive/CityLocationPicker/city_location_picker.dart';
+import 'package:win_drive/Login/send_verification_code.dart';
 // import 'numericButton.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -102,27 +103,31 @@ class _LoginScreenState extends State<LoginScreen> {
                      ),
                    ),
                    SizedBox(height: 20,),
-                   Container(
-                     width: 300,
-                     height: 55,
-                     child: ElevatedButton(
-                       onPressed: () {
-                         print(controller);
-                         Navigator.push(context, MaterialPageRoute(builder: (context)=>CityLocationPicker()));
+                   Padding(
+                     padding: const EdgeInsets.only(bottom: 10.0),
+                     child: Center(
+                       child: InkWell(
+                         onTap: (){
+                           Navigator.push(context, MaterialPageRoute(builder: (context)=>SendVerificationCode()));
+                         },
+                         child: Container(
+                           width: 300,
+                           height: 55,
+                           decoration: BoxDecoration(
+                               borderRadius: BorderRadius.circular(30),
+                               color: Colors.teal
+                           ),
+                           child: Center(
+                             child: Text(
+                               'Next',
+                               style: GoogleFonts.dmSans(
+                                 fontWeight: FontWeight.w700,
+                                 fontSize: 18,
+                                 color: Colors.white,
+                               ),
+                             ),
+                           ),
 
-                       },
-                       child: Text(
-                         'Next',
-                         style: GoogleFonts.dmSans(
-                           fontWeight: FontWeight.w700,
-                           fontSize: 20,
-                           color: Colors.white,
-                         ),
-                       ),
-                       style: ElevatedButton.styleFrom(
-                         primary: Colors.teal,
-                         shape: RoundedRectangleBorder(
-                           borderRadius: BorderRadius.circular(100),
                          ),
                        ),
                      ),
@@ -149,15 +154,15 @@ class _LoginScreenState extends State<LoginScreen> {
                            color: Color(0xffA9A9AA),
                          ),
                        ),
-                       TextSpan(
-                         text: 'Terms & Conditions',
-                         style: GoogleFonts.dmSans(
-                           fontSize: 12,
-                           fontWeight: FontWeight.w500,
-                           color: Colors.blue,
-                           decoration: TextDecoration.underline,
-                         ),
-                         recognizer: TapGestureRecognizer()..onTap = () {},
+                     ),
+                     TextSpan(
+                       text: 'Terms & Conditions',
+                       style: GoogleFonts.dmSans(
+                         fontSize: 12,
+                         fontWeight: FontWeight.w500,
+                         color: Colors.teal,
+                         decoration: TextDecoration.underline,
+
                        ),
                        TextSpan(
                          text: ' and ',
@@ -167,15 +172,15 @@ class _LoginScreenState extends State<LoginScreen> {
                            color: Color(0xffA9A9AA),
                          ),
                        ),
-                       TextSpan(
-                         text: 'Privacy Policy',
-                         style: GoogleFonts.dmSans(
-                           fontSize: 12,
-                           fontWeight: FontWeight.w500,
-                           color: Colors.blue,
-                           decoration: TextDecoration.underline,
-                         ),
-                         recognizer: TapGestureRecognizer()..onTap = () {},
+                     ),
+                     TextSpan(
+                       text: 'Privacy Policy',
+                       style: GoogleFonts.dmSans(
+                         fontSize: 12,
+                         fontWeight: FontWeight.w500,
+                         color: Colors.teal,
+                         decoration: TextDecoration.underline,
+
                        ),
 
                      ],
