@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:win_drive/basic_info/basic_info.dart';
 
-class registration extends StatelessWidget {
-  const registration({Key? key}) : super(key: key);
+class Registration extends StatelessWidget {
+  const Registration({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,13 +46,13 @@ class registration extends StatelessWidget {
                         color: Colors.green,),
                         onPressed:() => Navigator.push(
                             context, MaterialPageRoute(
-                            builder: (context) => basic_info())),),
+                            builder: (context) => BasicInfo())),),
                       title: Text('Basic info'),
                     ),
                     ListTile(
                       trailing: IconButton(icon: Icon(Icons.navigate_next), onPressed:() => Navigator.push(
                           context, MaterialPageRoute(
-                          builder: (context) => basic_info())),),
+                          builder: (context) => BasicInfo())),),
                       title: Text('Driver license'),
                     ),
                     ListTile(
@@ -60,7 +60,7 @@ class registration extends StatelessWidget {
                         icon: Icon(Icons.navigate_next),
                         onPressed:() => Navigator.push(
                             context, MaterialPageRoute(
-                            builder: (context) => basic_info())),),
+                            builder: (context) => BasicInfo())),),
                       title: Text('ID confirmation'),
                     ),
                     ListTile(
@@ -69,21 +69,21 @@ class registration extends StatelessWidget {
                         icon: Icon(Icons.navigate_next),
                         onPressed:() => Navigator.push(
                             context, MaterialPageRoute(
-                            builder: (context) => basic_info())),),
+                            builder: (context) => BasicInfo())),),
                       title: Text('CNIC'),
                     ),
                     ListTile(
                       trailing: IconButton(
                         icon: Icon(Icons.navigate_next), onPressed:() => Navigator.push(
                           context, MaterialPageRoute(
-                          builder: (context) => basic_info())),),
+                          builder: (context) => BasicInfo())),),
                       title: Text('Vehicle info'),
                     ),
                     ListTile(
                       trailing: IconButton(
                         icon: Icon(Icons.navigate_next), onPressed:() => Navigator.push(
                           context, MaterialPageRoute(
-                          builder: (context) => basic_info())),),
+                          builder: (context) => BasicInfo())),),
                       title: Text('Agent Referral Code'),
                       subtitle: Text('Optional, enter if you have code'),
                     ),

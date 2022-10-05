@@ -3,7 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class moto_brands extends StatelessWidget {
+class MotoBrands extends StatelessWidget {
 
   final List motoBrandList = [
     'BMW',
@@ -18,7 +18,7 @@ class moto_brands extends StatelessWidget {
     'Fiat'
   ];
 
-  moto_brands({Key? key}) : super(key: key);
+  MotoBrands({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

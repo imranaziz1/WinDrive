@@ -3,8 +3,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class request_history extends StatelessWidget {
-  const request_history({Key? key}) : super(key: key);
+class RequestHistory extends StatelessWidget {
+  const RequestHistory({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

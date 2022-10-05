@@ -54,7 +54,7 @@ class CityLocationPicker extends StatelessWidget {
                     'Edit',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.dmSans(
-                      color:  Colors.pink.shade400,
+                      color:  Colors.teal,
                       fontSize: 15,
                       fontWeight: FontWeight.w800,
                     ),
@@ -83,7 +83,7 @@ class CityLocationPicker extends StatelessWidget {
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.pink.shade400,
+                      primary: Colors.teal,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(100),
                       ),
