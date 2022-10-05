@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:win_drive/SelectRole/role.dart';
+import 'package:win_drive/WelcomeScreen/welcome_screen.dart';
 import 'package:win_drive/Widgets/add_location_dialog.dart';
 class CityLocationPicker extends StatelessWidget {
 
@@ -70,20 +71,20 @@ class CityLocationPicker extends StatelessWidget {
                   height: 55,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectRole()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>WelcomeScreen()));
 
 
                     },
                     child: Text(
                       'Next',
                       style: GoogleFonts.dmSans(
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w500,
                         fontSize: 20,
                         color: Colors.white,
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.pink.shade400,
+                      primary: Colors.teal,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(100),
                       ),
