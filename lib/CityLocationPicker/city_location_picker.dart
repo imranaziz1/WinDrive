@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:win_drive/SelectRole/role.dart';
+import 'package:win_drive/Widgets/add_location_dialog.dart';
 class CityLocationPicker extends StatelessWidget {
 
   @override
@@ -45,6 +47,7 @@ class CityLocationPicker extends StatelessWidget {
                 SizedBox(height: 5,),
                 InkWell(
                   onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>AddLocationDialog()));
 
                   },
                   child: Text(
@@ -67,6 +70,8 @@ class CityLocationPicker extends StatelessWidget {
                   height: 55,
                   child: ElevatedButton(
                     onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectRole()));
+
 
                     },
                     child: Text(
