@@ -15,21 +15,16 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
+   final TextEditingController controller = TextEditingController();
+   String initialCountry = '+92';
+   PhoneNumber number = PhoneNumber(isoCode: 'PK');
 
-  ////////////
-  String countryCode = '+92';
-  String value = '+92';
-  final myController = TextEditingController();
 
-  //
-  final TextEditingController controller = TextEditingController();
-  String initialCountry = 'PAK';
-  PhoneNumber number = PhoneNumber(isoCode: '+92');
+
   @override
   void dispose() {
-    // Clean up the controller when the widget is disposed.
     controller.dispose();
-    myController.dispose();
+    // myController.dispose();
     super.dispose();
   }
 
