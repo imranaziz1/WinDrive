@@ -55,7 +55,7 @@ class CityLocationPicker extends StatelessWidget {
                     'Edit',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.dmSans(
-                      color:  Colors.pink.shade400,
+                      color:  Colors.teal,
                       fontSize: 15,
                       fontWeight: FontWeight.w800,
                     ),

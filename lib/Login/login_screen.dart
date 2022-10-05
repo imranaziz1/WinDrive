@@ -28,6 +28,12 @@ class _LoginScreenState extends State<LoginScreen> {
     // myController.dispose();
     super.dispose();
   }
+  @override
+  void initState() {
+
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                      child: Text(
                        'Join us via phone number',
                        textAlign: TextAlign.center,
-                       style: GoogleFonts.dmSans(
+                      style: GoogleFonts.dmSans(
                          color: Color(0xff06161C),
                          fontSize: 20,
                          fontWeight: FontWeight.w800,
@@ -84,11 +90,12 @@ class _LoginScreenState extends State<LoginScreen> {
                        initialValue: number,
                        hintText: "Enter your phone number",
                        textFieldController: controller,
-                       spaceBetweenSelectorAndTextField: 0.0,
+                       spaceBetweenSelectorAndTextField: 0,
                         countrySelectorScrollControlled: true,
                        textAlign: TextAlign.start,
                        formatInput: false,
                        keyboardType: TextInputType.numberWithOptions(
+
                            signed: true, decimal: true),
                        onSaved: (PhoneNumber number) {
                          print('On Saved: $number');
@@ -120,6 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                ),
                              ),
                            ),
+
                          ),
                        ),
                      ),
@@ -129,18 +137,22 @@ class _LoginScreenState extends State<LoginScreen> {
              ),
              Positioned(
                bottom: 10,
-               child:  Container(
-               width: 344,
-               child: RichText(
-                 textAlign: TextAlign.center,
-                 text: TextSpan(
-                   children: [
-                     TextSpan(
-                       text: 'By tapping "Next" you agree to ',
-                       style: GoogleFonts.dmSans(
-                         fontSize: 12,
-                         fontWeight: FontWeight.w500,
-                         color: Color(0xffA9A9AA),
+               left: 50,
+               right: 50,
+               child:  Center(
+                 child: Container(
+                 width: 344,
+                 child: RichText(
+                   textAlign: TextAlign.center,
+                   text: TextSpan(
+                     children: [
+                       TextSpan(
+                         text: 'By tapping "Next" you agree to ',
+                         style: GoogleFonts.dmSans(
+                           fontSize: 12,
+                           fontWeight: FontWeight.w500,
+                           color: Color(0xffA9A9AA),
+                         ),
                        ),
                      ),
                      TextSpan(
@@ -150,15 +162,15 @@ class _LoginScreenState extends State<LoginScreen> {
                          fontWeight: FontWeight.w500,
                          color: Colors.teal,
                          decoration: TextDecoration.underline,
+
                        ),
-                       recognizer: TapGestureRecognizer()..onTap = () {},
-                     ),
-                     TextSpan(
-                       text: ' and ',
-                       style: GoogleFonts.dmSans(
-                         fontSize: 12,
-                         fontWeight: FontWeight.w500,
-                         color: Color(0xffA9A9AA),
+                       TextSpan(
+                         text: ' and ',
+                         style: GoogleFonts.dmSans(
+                           fontSize: 12,
+                           fontWeight: FontWeight.w500,
+                           color: Color(0xffA9A9AA),
+                         ),
                        ),
                      ),
                      TextSpan(
@@ -168,14 +180,14 @@ class _LoginScreenState extends State<LoginScreen> {
                          fontWeight: FontWeight.w500,
                          color: Colors.teal,
                          decoration: TextDecoration.underline,
-                       ),
-                       recognizer: TapGestureRecognizer()..onTap = () {},
-                     ),
 
-                   ],
+                       ),
+
+                     ],
+                   ),
                  ),
-               ),
-             ),)
+             ),
+               ),)
             ],
           ),
         ),
