@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:win_drive/City/request_city.dart';
+import 'package:win_drive/CustomButtons/custom_button.dart';
 import 'package:win_drive/FAQ/faq.dart';
 import 'package:win_drive/Intercity/intercity.dart';
 import 'package:win_drive/Registration/registration.dart';
@@ -14,20 +15,24 @@ import 'package:win_drive/Truck%20NEW/truck_new.dart';
 
 import '../basic_info/basic_info.dart';
 
-class drawer_page extends StatefulWidget {
-  const drawer_page({Key? key}) : super(key: key);
+class drawerPage extends StatefulWidget {
+  const drawerPage({Key? key}) : super(key: key);
 
   @override
-  State<drawer_page> createState() => _drawer_pageState();
+  State<drawerPage> createState() => _drawerPageState();
 }
 
-class _drawer_pageState extends State<drawer_page> {
+class _drawerPageState extends State<drawerPage> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-            padding: EdgeInsets.zero,
+
             children: [
+              SizedBox(height: 16,),
               ListTile(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => basic_info()));
+                },
                 selectedTileColor: Colors.pink.shade300,
                 title: Text("User Name"),
                 trailing: IconButton(onPressed: (){
@@ -35,20 +40,22 @@ class _drawer_pageState extends State<drawer_page> {
                 }, icon: Icon(Icons.navigate_next)),
                 leading: CircleAvatar(
                   child: Container(
-                    width: 200,
+                    width: 300,
                     height: 200,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage('assets/user.png',
+                          image: AssetImage('assets/imran/user.png',
                           ),
                           fit: BoxFit.cover),
                       borderRadius: BorderRadius.circular(13.9),
                     ),
+                    child: SizedBox(height: 50,)
                   ),
                 ),
+                horizontalTitleGap: 50,
               ),
               Divider(
-                height: 5,
+                height: 10,
                 thickness: 2,
               ),
               ListTile(
@@ -112,22 +119,24 @@ class _drawer_pageState extends State<drawer_page> {
                 height: 2,
                 thickness: 2,
               ),
-              ElevatedButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => registration()));
-              }, child: Text("Driver mode"),
-
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: custom_button(title: "Driver Mode", onClick: (){}),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     InkWell(
-                      child: Icon(Icons.whatsapp),
+
+                      child: Image(image: AssetImage("assets/imran/whatsapp.png")),
                       onTap: (){},
                     ),
+                    SizedBox(width: 50),
                     InkWell(
-                      child: Icon(Icons.whatsapp),
+                      child: Image(image: AssetImage("assets/imran/Instagram.png")),
                       onTap: (){},
 
                     )

@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                      child: Text(
                        'Join us via phone number',
                        textAlign: TextAlign.center,
-                       style: GoogleFonts.dmSans(
+                      style: GoogleFonts.dmSans(
                          color: Color(0xff06161C),
                          fontSize: 20,
                          fontWeight: FontWeight.w800,

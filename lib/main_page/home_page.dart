@@ -19,7 +19,7 @@ class _home_pageState extends State<home_page> {
         title: Text("Home Screen"),
       ),
         drawer: Drawer(
-         child: drawer_page(),
+         child: drawerPage(),
         )
 
     );

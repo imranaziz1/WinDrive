@@ -2,19 +2,46 @@
 
 
 
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
-class basic_info extends StatelessWidget {
+import '../CustomButtons/custom_button.dart';
+import '../Menu_drawer/drawer_page.dart';
+
+class basic_info extends StatefulWidget {
   const basic_info({Key? key}) : super(key: key);
 
+  @override
+  State<basic_info> createState() => _basic_infoState();
+
+}
+
+class _basic_infoState extends State<basic_info> {
+  File? _image;
+
+  Future getImage() async {
+    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if( image == null) return;
+
+    final imageTemporary = File(image.path);
+    setState(() {
+      this._image = imageTemporary;
+    });
+
+   // final ImagePermanent = await saveFilePermanently(image.path);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.pink,
+        backgroundColor: Colors.teal,
         elevation: 1,
-        leading: IconButton(onPressed: (){}, icon: Icon(Icons.menu),),
+        leading: IconButton(onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: ((context) => drawerPage())));
+        }, icon: Icon(Icons.menu),),
         actions: <Widget> [
           TextButton(onPressed: (){
 
@@ -24,33 +51,20 @@ class basic_info extends StatelessWidget {
         ],
 
       ),
-      body: Container(
-        color: Colors.white,
-        margin: const EdgeInsets.all(10.0),
+      body: SafeArea(
+        child: Column(
+            children: <Widget> [
+              SizedBox(height: 10,),
+                 Image(image: AssetImage("assets/imran/user_2.png"),
+                 ),
 
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children:  [
+                    SizedBox(height: 16,),
+                    OutlinedButton(onPressed: getImage,
+                      style: OutlinedButton.styleFrom(
+                        shape: StadiumBorder(),),
+                      child: Text('Add a photo'),
+                    ),
 
-              const Icon(Icons.person,
-                color: Colors.pink,
-                size: 100.0,),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  OutlinedButton.icon(onPressed: (){},
-                    icon: const Icon(Icons.person_outline, size: 20,),
-                    label: const Text('Take a photo'),
-                  ),
-
-                  OutlinedButton.icon(onPressed: (){},
-                    icon: const Icon(Icons.person_outline, size: 20,),
-                    label: const Text('Choose a photo'),
-                  ),
-                ],
-              ),
 
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,11 +109,20 @@ class basic_info extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        SizedBox(height: 10,),
+                        custom_button(title: "Next", onClick: (){}),
+                      ],
+                    ),
+                  )
                 ],
               )
             ],
           ),
-        ),
       ),
     );
   }
