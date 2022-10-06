@@ -154,7 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
                            color: Color(0xffA9A9AA),
                          ),
                        ),
-                     ),
+
                      TextSpan(
                        text: 'Terms & Conditions',
                        style: GoogleFonts.dmSans(
@@ -163,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                          color: Colors.teal,
                          decoration: TextDecoration.underline,
 
-                       ),
+                       ),),
                        TextSpan(
                          text: ' and ',
                          style: GoogleFonts.dmSans(
@@ -172,7 +172,7 @@ class _LoginScreenState extends State<LoginScreen> {
                            color: Color(0xffA9A9AA),
                          ),
                        ),
-                     ),
+
                      TextSpan(
                        text: 'Privacy Policy',
                        style: GoogleFonts.dmSans(
@@ -182,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
                          decoration: TextDecoration.underline,
 
                        ),
-
+                     )
                      ],
                    ),
                  ),
