@@ -80,7 +80,7 @@ class SelectRole extends StatelessWidget {
                           height: 55,
                           child: ElevatedButton(
                             onPressed: () {
-                              // Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectRole()));
+                               Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
 
 
 

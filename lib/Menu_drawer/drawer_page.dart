@@ -52,7 +52,7 @@ class _DrawerPageState extends State<DrawerPage> {
                         ),
                       ),
                     ),
-                    child: SizedBox(height: 50,)
+
                   ),
 
                   Divider(
