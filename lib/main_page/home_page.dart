@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:win_drive/Menu_drawer/drawer_page.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:win_drive/main_page/main_bottom_nevigation_bar.dart';
+import 'package:win_drive/main_page/vehicle_container.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -120,11 +122,6 @@ class _HomePageState extends State<HomePage> {
 
                 ],
               )
-
-
-
-
-
             ],
           ),
         ),
@@ -140,9 +137,66 @@ class _HomePageState extends State<HomePage> {
           return new Container(
             height: screenSize.height*0.5,
             color: Colors.green,
-            child: new Center(
-              child: new Text(" Modal BottomSheet",textScaleFactor: 2,
-                  style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold)),
+            child: new Column(
+              children: [
+              Container(
+              //height: screenSize.height*0.5,
+              color: Colors.white,
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      SingleChildScrollView(
+                              child: ListView(
+                            children: [
+                             InkWell(
+                               onTap: (){},
+                               child: Container(
+                                 height: 10,
+                                 width: 10,
+                               ),
+                             ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              // CustomContainer(
+                              //     title: "Ride Ac",
+                              //     vehicleImage: "assets/imran/instagram.png",
+                              //     onClick: () {}),
+                              // SizedBox(
+                              //   width: 10,
+                              // ),
+                              // CustomContainer(
+                              //     title: "Ride Ac",
+                              //     vehicleImage: "assets/imran/instagram.png",
+                              //     onClick: () {}),
+                              // SizedBox(
+                              //   width: 10,
+                              // ),
+                              // CustomContainer(
+                              //     title: "Ride Ac",
+                              //     vehicleImage: "assets/imran/instagram.png",
+                              //     onClick: () {}),
+                              // SizedBox(
+                              //   width: 10,
+                              // ),
+                              // CustomContainer(
+                              //     title: "Ride Ac",
+                              //     vehicleImage: "assets/imran/instagram.png",
+                              //     onClick: () {}),
+                              // SizedBox(
+                              //   width: 10,
+                              // ),
+                            ],
+                          )
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+
+              ],
             ),
           );
         }
