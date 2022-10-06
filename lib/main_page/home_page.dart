@@ -5,6 +5,8 @@ import 'package:win_drive/Menu_drawer/drawer_page.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 
+import 'model_bottom_sheet.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -42,30 +44,49 @@ class _HomePageState extends State<HomePage> {
           infoWindow: InfoWindow(title: 'Monem', snippet: 'chishty')));
     });
   }
-  bool isDrawer= true;
+
+  bool isDrawer = true;
+  bool isShowBottomSheet = true;
+  bool isStillClicked = false;
 
   @override
   void initState() {
     super.initState();
     getCurrentLocation();
-    Timer(Duration(seconds: 3), () { BottomSheetFunction(); });
-
+    // Timer(Duration(seconds: 3), () {
+    //   BottomSheetFunction();
+    // });
   }
+
   var _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
     return Scaffold(
-
       key: _scaffoldKey,
-      drawer:  new DrawerPage(),
+      drawer: SafeArea(child: new DrawerPage()),
       body: SafeArea(
         child: InkWell(
-          onTap: (){
-            BottomSheetFunction();
+          onTap: () {
+            // isShowBottomSheet=true;
+            //  BottomSheetFunction();
           },
           child: Stack(
             children: [
               GoogleMap(
+                // onCameraMoveStarted: (){
+                //   setState((){
+                //     isShowBottomSheet = false;
+                //     print(isShowBottomSheet);
+                //   });
+                // },
+                onLongPress: (value){
+                    setState((){
+                      isShowBottomSheet = false;
+                      print(isShowBottomSheet);
+                    });
+                },
                 myLocationEnabled: true,
                 onMapCreated: _onMapCreated,
                 initialCameraPosition: CameraPosition(
@@ -80,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
-                      onTap: (){
+                      onTap: () {
                         _scaffoldKey.currentState?.openDrawer();
                       },
                       child: Container(
@@ -88,65 +109,59 @@ class _HomePageState extends State<HomePage> {
                           shape: BoxShape.circle,
                           color: Colors.white,
                         ),
-                        child:  Padding(
+                        child: Padding(
                           padding: const EdgeInsets.all(10.0),
-                          child: Icon(Icons.menu,size: 25,),
+                          child: Icon(
+                            Icons.menu,
+                            size: 25,
+                          ),
                         ),
-
                       ),
-                    ) ,
+                    ),
                   ),
-                  InkWell(
-                    onTap: (){
-
-                      BottomSheetFunction();
-
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.white,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Icon(
+                          Icons.share_outlined,
+                          size: 25,
                         ),
-                        child:  Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Icon(Icons.share_outlined,size: 25,),
-                        ),
-
-                      ) ,
+                      ),
                     ),
                   )
-
                 ],
-              )
-
-
-
-
-
+              ),
+              isShowBottomSheet == true
+                  ? Positioned(
+                      height: screenSize.height * 0.6,
+                      width: screenSize.width * 1,
+                      bottom: 1,
+                      child: Container(
+                        color: Colors.white,
+                      ))
+                  : SizedBox(),
             ],
           ),
         ),
       ),
     );
   }
- bool isShowBottomSheet=true;
-  void BottomSheetFunction(){
-    var screenSize = MediaQuery.of(context).size;
-    showModalBottomSheet(
-        context: context,
-        builder: (builder){
-          return new Container(
-            height: screenSize.height*0.5,
-            color: Colors.green,
-            child: new Center(
-              child: new Text(" Modal BottomSheet",textScaleFactor: 2,
-                  style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold)),
-            ),
-          );
-        }
-    );
-  }
 
+//   void BottomSheetFunction() {
+//     print(isShowBottomSheet);
+//    showModalBottomSheet(
+// useRootNavigator: false,
+//         context: context,
+//         builder: (builder) {
+//           return ShowBottomSheet();
+//         });
+//     }
+//     abc(){}
+//
 }
