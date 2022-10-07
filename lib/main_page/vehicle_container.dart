@@ -1,26 +1,26 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-Widget CustomButton({
+Widget CustomContainer({
   required String title,
-  // required IconData icon,
+  required String vehicleImage,
   required VoidCallback onClick,
 
 }) {
   return InkWell(
     onTap: onClick,
+    //make state here for change animation in buttons
     child: Container(
       alignment: Alignment.center,
-      height: 50,
-      width: 200,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(100),
-        color: Colors.teal,
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.white,
       ),
+
       child: Column(
         children: [
-
+          Image.asset(vehicleImage, ),
           Text(
             title,
             textAlign: TextAlign.center,
@@ -31,6 +31,7 @@ Widget CustomButton({
             ),
           ),
         ],
-      ),),
+      ),
+    ),
   );
 }
