@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:win_drive/basic_info/basic_info.dart';
+import 'package:win_drive/main_page/home_page.dart';
 
 import 'Login/login_screen.dart';
 
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-      home: LoginScreen(),
+      home: MyHomePage(),
       debugShowCheckedModeBanner: false,
     );
   }

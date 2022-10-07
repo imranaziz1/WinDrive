@@ -5,6 +5,8 @@ import 'setting/language.dart';
 import 'setting/navigator.dart';
 import 'setting/nightMode.dart';
 import 'setting/rulesTerms/mainRulesTerms.dart';
+import 'package:win_drive/Setting/rulesTerms.dart';
+
 
 void main() {
   runApp(const MyApp());
