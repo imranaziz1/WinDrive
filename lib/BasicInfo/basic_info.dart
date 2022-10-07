@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
-import '../CustomButtons/custom_button.dart';
 import 'package:path/path.dart';
+import 'package:win_drive/CustomButtons/custom_button.dart';
 
 import '../MainPage/home_page.dart';
 
@@ -63,8 +63,7 @@ class _BasicInfoState extends State<BasicInfo> {
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: SingleChildScrollView(
-          child: Scaffold(
-            body: Column(
+          child: Column(
               children: <Widget>[
                 SizedBox(
                   height: 20,
@@ -143,7 +142,7 @@ class _BasicInfoState extends State<BasicInfo> {
                 )
               ],
             ),
-          ),
+
         ),
       ),
     //  bottomNavigationBar: BottomNavigationBar(

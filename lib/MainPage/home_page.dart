@@ -106,7 +106,6 @@ class _HomePageState extends State<HomePage> {
           position: LatLng(33.9141273, 73.4046674),
           infoWindow: InfoWindow(title: 'ejaz', snippet: 'Pilot')));
     });
-    print(_markers);
     getDirections(); //fetch direction polylines from Google API
 
     super.initState();
