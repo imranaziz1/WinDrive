@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:win_drive/City/request_city.dart';
 import 'package:win_drive/CustomButtons/custom_button.dart';
@@ -7,10 +6,10 @@ import 'package:win_drive/Intercity/intercity.dart';
 import 'package:win_drive/Registration/registration.dart';
 import 'package:win_drive/Request%20history/request_history.dart';
 import 'package:win_drive/Safety/saftey.dart';
-import 'package:win_drive/Setting/setting.dart';
 import 'package:win_drive/Support/support.dart';
 import 'package:win_drive/Truck%20NEW/truck_new.dart';
 
+import '../Setting/setting_screen.dart';
 import '../basic_info/basic_info.dart';
 
 class DrawerPage extends StatefulWidget {
@@ -110,7 +109,7 @@ class _DrawerPageState extends State<DrawerPage> {
               selectedTileColor: Colors.black12,
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Setting()));
+                    MaterialPageRoute(builder: (context) => SettingScreen()));
               },
             ),
             ListTile(

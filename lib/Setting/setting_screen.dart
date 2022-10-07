@@ -1,39 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:win_drive/Setting/rulesTerms/mainRulesTerms.dart';
 
-import 'setting/dateDistances.dart';
-import 'setting/language.dart';
-import 'setting/navigator.dart';
-import 'setting/nightMode.dart';
-import 'setting/rulesTerms/mainRulesTerms.dart';
-import 'package:win_drive/Setting/rulesTerms.dart';
+import 'dateDistances.dart';
+import 'language.dart';
+import 'navigator.dart';
+import 'nightMode.dart';
 
 
-void main() {
-  runApp(const MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class SettingScreen extends StatefulWidget {
+
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primaryColor: Colors.white,
-        // primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Settings'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<SettingScreen> createState() => _SettingScreenState();
 }
 
 final List<String> _pageName = [
@@ -62,15 +41,14 @@ ListTile _listTile2(Function() ontap, String title) {
   );
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const SafeArea(child: Drawer()),
       appBar: AppBar(
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        title: Text(widget.title),
+        title: Text('Setting'),
       ),
       body: Column(
         children: <Widget>[
