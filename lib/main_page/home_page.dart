@@ -181,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                           InkWell(
                             onTap: () {},
                             child: CustomContainer(
-                                title: "Mini car",
+                                title: "Courior",
                                 vehicleImage: "assets/imran/door_to_door.png",
                                 onClick: () {}),
                           ),
@@ -195,7 +195,12 @@ class _HomePageState extends State<HomePage> {
                           ),
                           SizedBox(width: 10,),
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              setState(() {
+                              //  visible1 = false;
+                              });
+                            },
+
                             child: CustomContainer(
                                 title: "Auto",
                                 vehicleImage: "assets/imran/box_truck.png",
@@ -205,7 +210,7 @@ class _HomePageState extends State<HomePage> {
                           InkWell(
                             onTap: () {},
                             child: CustomContainer(
-                                title: "Auto",
+                                title: "Truck",
                                 vehicleImage: "assets/imran/box_truck.png",
                                 onClick: () {}),
                           ),
