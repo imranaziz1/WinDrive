@@ -1,16 +1,11 @@
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:win_drive/Menu_drawer/drawer_page.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:win_drive/main_page/main_bottom_nevigation_bar.dart';
-import 'package:win_drive/main_page/vehicle_container.dart';
-import 'package:share_plus/share_plus.dart';
-import 'dart:ui';
-import 'dart:typed_data';
-import 'package:flutter_share/flutter_share.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -40,6 +35,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   final Set<Marker> _markers = {};
+  bool isShowBottomSheet = true;
+  bool isShowTopIcons = true;
 
   void _onMapCreated(GoogleMapController controller) {
     setState(() {
@@ -53,7 +50,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   bool isDrawer = true;
-  bool isShowBottomSheet = true;
   bool isStillClicked = false;
 
   @override
@@ -83,27 +79,34 @@ class _HomePageState extends State<HomePage> {
             children: [
               GoogleMap(
 
-                // onCameraMoveStarted: (){
-                //   setState((){
-                //     isShowBottomSheet = false;
-                //     print(isShowBottomSheet);
-                //   });
-                // },
-                onLongPress: (value){
-                    setState((){
-                      isShowBottomSheet = false;
-                      print(isShowBottomSheet);
+                onCameraIdle: () {
+                  Timer(Duration(seconds: 1),(){
+                  setState((){
+
+                      isShowBottomSheet = true;
+                      isShowTopIcons = true;
                     });
+
+                  });
                 },
+                onCameraMoveStarted: (){
+                  setState((){
+                      isShowBottomSheet = false;
+                      isShowTopIcons = false;
+
+                    print(isShowBottomSheet);
+                  });
+                },
+
                 myLocationEnabled: true,
                 onMapCreated: _onMapCreated,
                 initialCameraPosition: CameraPosition(
                   target: LatLng(myLat!, myLon!),
-                  zoom: 1,
+                  zoom: 7,
                 ),
                 markers: _markers,
               ),
-              Row(
+              isShowTopIcons==true?   Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
@@ -151,23 +154,56 @@ class _HomePageState extends State<HomePage> {
                   )
                 ],
 
-              ),
-              isShowBottomSheet == true
-                  ? Positioned(
-                      height: screenSize.height * 0.6,
+              ):SizedBox(),
+              Positioned(
+                    //  height: isShowBottomSheet == true?screenSize.height * 0.6:30,
                       width: screenSize.width * 1,
-                      bottom: 1,
-                      child: Container(
-                        color: Colors.white,
+                      bottom: 0.01,
+                      child: AnimatedContainer(
+                        height: isShowBottomSheet == true?screenSize.height * 0.5:0,
+                        //  transformAlignment: Alignment.topCenter,
+                        //  curve: Curves.linear,
+                        duration: Duration(milliseconds: 700),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(0),
+                                bottomRight: Radius.circular(0),
+                                topLeft: Radius.circular(40),
+                                topRight: Radius.circular(40),
+                            )
+                        ),
+
+                        child: SingleChildScrollView(
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+
+                                borderRadius: BorderRadius.circular(33)
+                            ),
+                            child: Column(
+                              children: [
+                                Text('njfjej nkwekw',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 44),),
+                                Text('njfjej nkwekw',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 44),),
+                                Text('njfjej nkwekw',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 44),),
+                                Text('njfjej nkwekw',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 44),),
+                                Text('njfjej nkwekw',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 44),),
+                                Text('njfjej nkwekw',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 44),),
+                                Text('njfjej nkwekw',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 44),),
+                                Text('njfjej nkwekw',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 44),),
+                              ],
+                            ),
+                          ),
+                        ),
                       ))
-                  : SizedBox(),
+
             ],
           ),
         ),
       ),
     );
   }
- bool isShowBottomSheet=true;
   void BottomSheetFunction(){
     var screenSize = MediaQuery.of(context).size;
     showModalBottomSheet(
@@ -241,6 +277,8 @@ class _HomePageState extends State<HomePage> {
         }
     );
   }
+abc(){
 
+}
 
 }

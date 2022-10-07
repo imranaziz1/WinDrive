@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import './settings/dateDistances.dart';
-import './settings/navigator.dart';
-
-import './settings/language.dart';
-import './settings/nightMode.dart';
-import './settings/rulesTerms.dart';
+import 'package:win_drive/Setting/rulesTerms.dart';
+import 'dateDistances.dart';
+import 'language.dart';
+import 'navigator.dart';
+import 'nightMode.dart';
 
 void main() {
   runApp(const MyApp());
