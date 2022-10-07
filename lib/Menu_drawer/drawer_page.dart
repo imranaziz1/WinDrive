@@ -25,7 +25,8 @@ class _DrawerPageState extends State<DrawerPage> {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return Container(
-      width: screenSize.width * 0.7,
+
+      width: screenSize.width*0.85,
       child: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,

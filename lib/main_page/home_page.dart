@@ -1,11 +1,16 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:win_drive/Menu_drawer/drawer_page.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:win_drive/main_page/main_bottom_nevigation_bar.dart';
 import 'package:win_drive/main_page/vehicle_container.dart';
+import 'package:share_plus/share_plus.dart';
+import 'dart:ui';
+import 'dart:typed_data';
+import 'package:flutter_share/flutter_share.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -39,35 +44,57 @@ class _HomePageState extends State<HomePage> {
   void _onMapCreated(GoogleMapController controller) {
     setState(() {
       _markers.add(Marker(
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+
           markerId: const MarkerId('firstMark'),
           position: LatLng(31.4337605, 74.2964158),
           infoWindow: InfoWindow(title: 'Monem', snippet: 'chishty')));
     });
   }
-  bool isDrawer= true;
+
+  bool isDrawer = true;
+  bool isShowBottomSheet = true;
+  bool isStillClicked = false;
 
   @override
   void initState() {
     super.initState();
     getCurrentLocation();
-    Timer(Duration(seconds: 3), () { BottomSheetFunction(); });
-
+    // Timer(Duration(seconds: 3), () {
+    //   BottomSheetFunction();
+    // });
   }
+
   var _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
     return Scaffold(
-
       key: _scaffoldKey,
-      drawer:  new DrawerPage(),
+      drawer: SafeArea(child: new DrawerPage()),
       body: SafeArea(
         child: InkWell(
-          onTap: (){
-            BottomSheetFunction();
+          onTap: () {
+            // isShowBottomSheet=true;
+            //  BottomSheetFunction();
           },
           child: Stack(
             children: [
               GoogleMap(
+
+                // onCameraMoveStarted: (){
+                //   setState((){
+                //     isShowBottomSheet = false;
+                //     print(isShowBottomSheet);
+                //   });
+                // },
+                onLongPress: (value){
+                    setState((){
+                      isShowBottomSheet = false;
+                      print(isShowBottomSheet);
+                    });
+                },
                 myLocationEnabled: true,
                 onMapCreated: _onMapCreated,
                 initialCameraPosition: CameraPosition(
@@ -82,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
-                      onTap: (){
+                      onTap: () {
                         _scaffoldKey.currentState?.openDrawer();
                       },
                       child: Container(
@@ -90,18 +117,20 @@ class _HomePageState extends State<HomePage> {
                           shape: BoxShape.circle,
                           color: Colors.white,
                         ),
-                        child:  Padding(
+                        child: Padding(
                           padding: const EdgeInsets.all(10.0),
-                          child: Icon(Icons.menu,size: 25,),
+                          child: Icon(
+                            Icons.menu,
+                            size: 25,
+                          ),
                         ),
-
                       ),
-                    ) ,
+                    ),
                   ),
                   InkWell(
                     onTap: (){
 
-                      BottomSheetFunction();
+                     Share.share("https://www.youtube.com/watch?v=jMSxWfrszMA");
 
                     },
                     child: Padding(
@@ -113,15 +142,25 @@ class _HomePageState extends State<HomePage> {
                         ),
                         child:  Padding(
                           padding: const EdgeInsets.all(10.0),
-                          child: Icon(Icons.share_outlined,size: 25,),
-                        ),
+                          child: Icon(Icons.share_outlined,size: 25,
+                          ),
 
-                      ) ,
+                        ),
+                      ),
                     ),
                   )
-
                 ],
-              )
+
+              ),
+              isShowBottomSheet == true
+                  ? Positioned(
+                      height: screenSize.height * 0.6,
+                      width: screenSize.width * 1,
+                      bottom: 1,
+                      child: Container(
+                        color: Colors.white,
+                      ))
+                  : SizedBox(),
             ],
           ),
         ),
@@ -202,5 +241,6 @@ class _HomePageState extends State<HomePage> {
         }
     );
   }
+
 
 }
