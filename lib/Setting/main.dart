@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import './settings/dateDistances.dart';
-import './settings/navigator.dart';
 
-import './settings/language.dart';
-import './settings/nightMode.dart';
-import './settings/rulesTerms.dart';
+import 'setting/dateDistances.dart';
+import 'setting/language.dart';
+import 'setting/navigator.dart';
+import 'setting/nightMode.dart';
+import 'setting/rulesTerms/mainRulesTerms.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,6 +34,15 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+final List<String> _pageName = [
+  'Phone Number',
+  'Language',
+  'Date and Distances',
+  'Night Mode',
+  'Navigator',
+  'Rules and terms'
+];
+
 ListTile _listTile1(Function() ontap, String title, String subtitle) {
   return ListTile(
     onTap: ontap,
@@ -55,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: SafeArea(child: const Drawer()),
+      drawer: const SafeArea(child: Drawer()),
       appBar: AppBar(
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
@@ -69,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
               barrierDismissible: true, // user may or may not tap button!
               builder: (BuildContext context) {
                 return AlertDialog(
-                  content: Text('Do you want to use a new number?'),
+                  content: const Text('Do you want to use a new number?'),
                   actions: <Widget>[
                     TextButton(
                       child: const Text('No'),
@@ -85,31 +94,39 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
-            "Phone Number",
+            _pageName[0],
             "+92..........",
           ),
-          // _listTile1(() {}, "Phone Number", "+92.........."),
           _listTile1(() {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Language()));
-          }, "Language", "Default language"),
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Language(pageName: _pageName[1])));
+          }, _pageName[1], "Default language"),
           _listTile2(() {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const DateDistances()));
-          }, "Date and distances"),
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => DateDistances(pageName: _pageName[2])));
+          }, _pageName[2]),
           _listTile1(() {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const NightMode()));
-          }, "Night mode", "System"),
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => NightMode(pageName: _pageName[3])));
+          }, _pageName[3], "System"),
           _listTile2(() {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Navigtor()));
-          }, "Navigator"),
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Navigtor(pageName: _pageName[4])));
+          }, _pageName[4]),
           _listTile2(() {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const RulesTerms()));
-          } // Route to language page
-              , "Rules and terms"),
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => RulesTerms(pageName: _pageName[5])));
+          }, _pageName[5]),
           InkWell(
             onTap: () {
               showDialog(
@@ -117,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 barrierDismissible: true, // user may or may not tap button!
                 builder: (BuildContext context) {
                   return AlertDialog(
-                    content: Text('Do you want to log out?'),
+                    content: const Text('Do you want to log out?'),
                     actions: <Widget>[
                       TextButton(
                         child: const Text('Cancel'),

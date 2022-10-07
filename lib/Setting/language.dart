@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Language extends StatelessWidget {
-  const Language({Key? key}) : super(key: key);
+  final String pageName;
+  const Language({Key? key, required this.pageName}) : super(key: key);
 
   ListTile _listTile(
       Function() ontap, String title, String subtitle, FontWeight fontWeight) {
@@ -21,7 +22,7 @@ class Language extends StatelessWidget {
             child: const Icon(Icons.arrow_back)),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        title: Text('Language'),
+        title: Text(pageName),
       ),
       body: Column(
         children: [

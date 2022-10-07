@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class DateDistances extends StatefulWidget {
-  const DateDistances({Key? key}) : super(key: key);
+  final String pageName;
+  const DateDistances({Key? key, required this.pageName}) : super(key: key);
 
   @override
   State<DateDistances> createState() => _DateDistancesState();
@@ -40,7 +41,7 @@ class _DateDistancesState extends State<DateDistances> {
         ),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        title: const Text('Date and Distances'),
+        title: Text(widget.pageName),
       ),
       body: Column(
         children: [

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Navigtor extends StatefulWidget {
-  const Navigtor({Key? key}) : super(key: key);
+  final String pageName;
+  const Navigtor({Key? key, required this.pageName}) : super(key: key);
 
   @override
   State<Navigtor> createState() => _NavigtorState();
@@ -9,7 +10,7 @@ class Navigtor extends StatefulWidget {
 
 class _NavigtorState extends State<Navigtor> {
   bool isSwitched = false;
-  // final VoidCallback onpressed;
+  // VoidCallback onpressed;
   void _navigatorSwitch(bool value) {
     if (isSwitched == false) {
       setState(() {
@@ -30,13 +31,13 @@ class _NavigtorState extends State<Navigtor> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text(widget.pageName),
         leading: GestureDetector(
           onTap: () => Navigator.of(context).pop(),
           child: const Icon(Icons.arrow_back),
         ),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        title: const Text('Navigator'),
       ),
       body: Column(
         children: [
