@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../GoogleMaps/google_maps.dart';
-import '../main_page/home_page.dart';
+import '../MainPage/home_page.dart';
+
 class SelectRole extends StatelessWidget {
   const SelectRole({Key? key}) : super(key: key);
 
@@ -105,29 +105,29 @@ class SelectRole extends StatelessWidget {
                     ),
 
 
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 10.0),
-                      child: Center(
-                        child: Container(
-                          width: 300,
-                          height: 55,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.grey.shade400
-                          ),
-                          child: Center(
-                            child: Text(
-                              'Driver',
-                              style: GoogleFonts.dmSans(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 18,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    // Padding(
+                    //   padding: const EdgeInsets.only(bottom: 10.0),
+                    //   child: Center(
+                    //     child: Container(
+                    //       width: 300,
+                    //       height: 55,
+                    //       decoration: BoxDecoration(
+                    //         borderRadius: BorderRadius.circular(30),
+                    //         color: Colors.grey.shade400
+                    //       ),
+                    //       child: Center(
+                    //         child: Text(
+                    //           'Driver',
+                    //           style: GoogleFonts.dmSans(
+                    //             fontWeight: FontWeight.w700,
+                    //             fontSize: 18,
+                    //             color: Colors.white,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 )
 

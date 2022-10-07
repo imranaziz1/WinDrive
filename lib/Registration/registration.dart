@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:win_drive/basic_info/basic_info.dart';
+
+import '../BasicInfo/basic_info.dart';
 
 class Registration extends StatelessWidget {
   const Registration({Key? key}) : super(key: key);

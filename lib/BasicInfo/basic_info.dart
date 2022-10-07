@@ -9,8 +9,9 @@ import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import '../CustomButtons/custom_button.dart';
-import '../main_page/home_page.dart';
 import 'package:path/path.dart';
+
+import '../MainPage/home_page.dart';
 
 
 class BasicInfo extends StatefulWidget {

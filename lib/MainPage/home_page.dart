@@ -1,19 +1,14 @@
 
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:win_drive/CustomButtons/custom_button.dart';
-import 'package:win_drive/Menu_drawer/drawer_page.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:win_drive/main_page/custom_text_field.dart';
-import 'package:win_drive/main_page/share_inkwell.dart';
-import 'package:win_drive/main_page/vehicle_container.dart';
-import 'package:share_plus/share_plus.dart';
-import 'dart:ui';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
-import 'dart:typed_data';
-import 'package:flutter_share/flutter_share.dart';
+import 'package:win_drive/MainPage/share_inkwell.dart';
+import '../MenuDrawer/drawer_page.dart';
+import 'main_bottom_container.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -75,7 +70,6 @@ class _HomePageState extends State<HomePage> {
   bool isShowTopIcons = true;
 
   String googleAPiKey = "AIzaSyC1XumqZaKF7uzEvYsfxwoEWU67QWh-JXU";
-  final Set<Marker> _markers = {};
   Map<PolylineId, Polyline> polylines = {};
   LatLng startLocation = LatLng(33.8022151, 72.7501235);
   LatLng endLocation = LatLng(33.48966, 73.196911);
