@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Widget custom_button({
+Widget CustomButtonIcon({
   required String title,
   required IconData icon,
   required VoidCallback onClick,
