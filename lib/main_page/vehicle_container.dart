@@ -12,21 +12,23 @@ Widget CustomContainer({
     onTap: onClick,
     //make state here for change animation in buttons
     child: Container(
+      height: 80,
+      width: 90,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Colors.white,
+        color: Colors.black12,
       ),
 
       child: Column(
         children: [
-          Image.asset(vehicleImage, ),
+          Image.asset(vehicleImage, height: 60,width: 70,),
           Text(
             title,
             textAlign: TextAlign.center,
             style: GoogleFonts.dmSans(
               color: Color(0xff06161C),
-              fontSize: 20,
+              fontSize: 8,
               fontWeight: FontWeight.w800,
             ),
           ),

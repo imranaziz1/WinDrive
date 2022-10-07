@@ -133,6 +133,7 @@ class _DrawerPageState extends State<DrawerPage> {
               height: 2,
               thickness: 2,
             ),
+            SizedBox(height: 10,),
             CustomButton(
                 title: "Driver mode",
                 onClick: () =>

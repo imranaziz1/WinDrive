@@ -2,10 +2,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:share_plus/share_plus.dart';
+import 'package:win_drive/CustomButtons/custom_button.dart';
 import 'package:win_drive/Menu_drawer/drawer_page.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:win_drive/main_page/custom_text_field.dart';
+import 'package:win_drive/main_page/vehicle_container.dart';
+import 'package:share_plus/share_plus.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -50,15 +53,17 @@ class _HomePageState extends State<HomePage> {
   }
 
   bool isDrawer = true;
+
   bool isStillClicked = false;
 
   @override
   void initState() {
     super.initState();
     getCurrentLocation();
-    // Timer(Duration(seconds: 3), () {
-    //   BottomSheetFunction();
-    // });
+    Timer(Duration(seconds: 3), () {
+      BottomSheetFunction();
+    });
+
   }
 
   var _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -68,6 +73,7 @@ class _HomePageState extends State<HomePage> {
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
       key: _scaffoldKey,
+
       drawer: SafeArea(child: new DrawerPage()),
       body: SafeArea(
         child: InkWell(
@@ -131,22 +137,24 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   InkWell(
-                    onTap: (){
-
-                     Share.share("https://www.youtube.com/watch?v=jMSxWfrszMA");
+                    onTap: () {
+                      BottomSheetFunction();
+                       Share.share("https://www.youtube.com/watch?v=jMSxWfrszMA");
 
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
                         decoration: BoxDecoration(
-                          shape: BoxShape.circle,
+                          borderRadius: BorderRadius.circular(15.0),
                           color: Colors.white,
                         ),
-                        child:  Padding(
+                        child: Padding(
                           padding: const EdgeInsets.all(10.0),
+
                           child: Icon(Icons.share_outlined,size: 25,
                           ),
+
 
                         ),
                       ),
@@ -204,81 +212,128 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
+  bool isShowBottomSheet = true;
+
+
   void BottomSheetFunction(){
     var screenSize = MediaQuery.of(context).size;
     showModalBottomSheet(
+      shape: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(30.0)
+      ),
         context: context,
-        builder: (builder){
-          return new Container(
-            height: screenSize.height*0.5,
-            color: Colors.green,
-            child: new Column(
-              children: [
-              Container(
-              //height: screenSize.height*0.5,
-              color: Colors.white,
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      SingleChildScrollView(
-                              child: ListView(
-                            children: [
-                             InkWell(
-                               onTap: (){},
-                               child: Container(
-                                 height: 10,
-                                 width: 10,
-                               ),
-                             ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              // CustomContainer(
-                              //     title: "Ride Ac",
-                              //     vehicleImage: "assets/imran/instagram.png",
-                              //     onClick: () {}),
-                              // SizedBox(
-                              //   width: 10,
-                              // ),
-                              // CustomContainer(
-                              //     title: "Ride Ac",
-                              //     vehicleImage: "assets/imran/instagram.png",
-                              //     onClick: () {}),
-                              // SizedBox(
-                              //   width: 10,
-                              // ),
-                              // CustomContainer(
-                              //     title: "Ride Ac",
-                              //     vehicleImage: "assets/imran/instagram.png",
-                              //     onClick: () {}),
-                              // SizedBox(
-                              //   width: 10,
-                              // ),
-                              // CustomContainer(
-                              //     title: "Ride Ac",
-                              //     vehicleImage: "assets/imran/instagram.png",
-                              //     onClick: () {}),
-                              // SizedBox(
-                              //   width: 10,
-                              // ),
-                            ],
-                          )
+        builder: (builder) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: new Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              height: screenSize.height * 0.5,
+              child: SingleChildScrollView(
+                child: new Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                   child: Padding(
+                     padding: const EdgeInsets.all(8.0),
+                     child: Row(
+                        children: [
+                          InkWell(
+                            onTap: () {},
+                            child: CustomContainer(
+                                title: "Car AC",
+                                vehicleImage: "assets/imran/bycicle.png",
+                                onClick: () {}),
+                            ),
+                          SizedBox(width: 10,),
+                          InkWell(
+                            onTap: () {},
+                            child: CustomContainer(
+                                title: "CAR",
+                                vehicleImage: "assets/imran/box_truck.png",
+                                onClick: () {}),
+                          ),
+                          SizedBox(width: 10,),
+                          InkWell(
+                            onTap: () {},
+                            child: CustomContainer(
+                                title: "Mini car",
+                                vehicleImage: "assets/imran/door_to_door.png",
+                                onClick: () {}),
+                          ),
+                          SizedBox(width: 10,),
+                          InkWell(
+                            onTap: () {},
+                            child: CustomContainer(
+                                title: "Moto",
+                                vehicleImage: "assets/imran/sport_car.png",
+                                onClick: () {}),
+                          ),
+                          SizedBox(width: 10,),
+                          InkWell(
+                            onTap: () {},
+                            child: CustomContainer(
+                                title: "Auto",
+                                vehicleImage: "assets/imran/box_truck.png",
+                                onClick: () {}),
+                          ),
+                          SizedBox(width: 10,),
+                          InkWell(
+                            onTap: () {},
+                            child: CustomContainer(
+                                title: "Truck",
+                                vehicleImage: "assets/imran/box_truck.png",
+                                onClick: () {}),
+                          ),
+                        ],
                       ),
-                    ],
-                  )
-                ],
+                   ),
+                    ),
+                    Divider(
+                      height: 2,
+                    ),
+                    CustomTextField(
+                        initialTitle: "Current Location",
+                        icon: Icons.center_focus_strong,
+                        onClick: () {}),
+                    CustomTextField(
+                        initialTitle: "Destination",
+                        icon: Icons.center_focus_strong,
+                        onClick: () {}),
+                    TextFormField(
+                      onTap: (){
+
+                      },
+                      cursorColor: Colors.teal,
+                      initialValue: "Offer your fare",
+                      maxLength: 20,
+                      decoration:
+                      InputDecoration(
+                        contentPadding: EdgeInsets.zero,
+                         icon: Text("PKR",style: TextStyle(
+                          color: Colors.blue,
+                        ),),
+
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFF6200EE)),
+                        ),
+                      ),
+                    ),
+                    CustomTextField(
+                        initialTitle: "Comment and wishes",
+                        icon: Icons.chat,
+                        onClick: () {}),
+                    CustomButton(title: "Find a driver", onClick: (){}),
+                  ],
+                ),
               ),
             ),
-
-              ],
-            ),
           );
-        }
-    );
+        });
   }
-abc(){
-
-}
 
 }
