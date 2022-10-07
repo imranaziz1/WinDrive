@@ -1,11 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:win_drive/Menu_drawer/drawer_page.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
-
-import 'model_bottom_sheet.dart';
+import 'package:share_plus/share_plus.dart';
+import 'dart:ui';
+import 'dart:typed_data';
+import 'package:flutter_share/flutter_share.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -39,6 +42,8 @@ class _HomePageState extends State<HomePage> {
   void _onMapCreated(GoogleMapController controller) {
     setState(() {
       _markers.add(Marker(
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+
           markerId: const MarkerId('firstMark'),
           position: LatLng(31.4337605, 74.2964158),
           infoWindow: InfoWindow(title: 'Monem', snippet: 'chishty')));
@@ -75,6 +80,7 @@ class _HomePageState extends State<HomePage> {
           child: Stack(
             children: [
               GoogleMap(
+
                 // onCameraMoveStarted: (){
                 //   setState((){
                 //     isShowBottomSheet = false;
@@ -119,18 +125,24 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.white,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Icon(
-                          Icons.share_outlined,
-                          size: 25,
+                  InkWell(
+                    onTap: (){
+
+                     Share.share("https://www.youtube.com/watch?v=jMSxWfrszMA");
+
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                        ),
+                        child:  Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Icon(Icons.share_outlined,size: 25,
+                          ),
+
                         ),
                       ),
                     ),
@@ -153,15 +165,5 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-//   void BottomSheetFunction() {
-//     print(isShowBottomSheet);
-//    showModalBottomSheet(
-// useRootNavigator: false,
-//         context: context,
-//         builder: (builder) {
-//           return ShowBottomSheet();
-//         });
-//     }
-//     abc(){}
-//
+
 }
