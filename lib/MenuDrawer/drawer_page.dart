@@ -63,7 +63,7 @@ class _DrawerPageState extends State<DrawerPage> {
               selectedTileColor: Colors.black12,
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => RequestCity()));
+                    MaterialPageRoute(builder: (context) => HomePage()));
               },
             ),
             ListTile(
