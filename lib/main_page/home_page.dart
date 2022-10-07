@@ -181,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                           InkWell(
                             onTap: () {},
                             child: CustomContainer(
-                                title: "Courior",
+                                title: "Mini car",
                                 vehicleImage: "assets/imran/door_to_door.png",
                                 onClick: () {}),
                           ),
@@ -195,12 +195,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           SizedBox(width: 10,),
                           InkWell(
-                            onTap: () {
-                              setState(() {
-                              //  visible1 = false;
-                              });
-                            },
-
+                            onTap: () {},
                             child: CustomContainer(
                                 title: "Auto",
                                 vehicleImage: "assets/imran/box_truck.png",
@@ -230,14 +225,17 @@ class _HomePageState extends State<HomePage> {
                         icon: Icons.center_focus_strong,
                         onClick: () {}),
                     TextFormField(
+                      onTap: (){
+
+                      },
                       cursorColor: Colors.teal,
                       initialValue: "Offer your fare",
                       maxLength: 20,
                       decoration:
                       InputDecoration(
                         contentPadding: EdgeInsets.zero,
-                        prefix: Text("PKR  ",style: TextStyle(
-                          color: Colors.black,
+                         icon: Text("PKR",style: TextStyle(
+                          color: Colors.blue,
                         ),),
 
                         enabledBorder: UnderlineInputBorder(

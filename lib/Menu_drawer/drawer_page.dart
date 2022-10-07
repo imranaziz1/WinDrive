@@ -21,7 +21,6 @@ class DrawerPage extends StatefulWidget {
 }
 
 class _DrawerPageState extends State<DrawerPage> {
-
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -97,10 +96,8 @@ class _DrawerPageState extends State<DrawerPage> {
             ListTile(
               leading: Icon(Icons.health_and_safety),
               title: Text('Safety'),
-
               selectedTileColor: Colors.black12,
               onTap: () {
-              //  if(selected == )
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => Safety()));
               },

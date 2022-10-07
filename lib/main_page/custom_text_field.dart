@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 Widget CustomTextField({
+  required VoidCallback onClick,
   required String initialTitle,
   required IconData icon,
-  required VoidCallback onClick,
-
 }) {
   return InkWell(
     onTap: onClick,
