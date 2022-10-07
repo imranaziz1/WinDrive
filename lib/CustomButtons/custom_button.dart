@@ -11,6 +11,7 @@ Widget CustomButton({
   return InkWell(
     onTap: onClick,
     child: Container(
+
       alignment: Alignment.center,
       height: 50,
       width: 200,
@@ -19,6 +20,7 @@ Widget CustomButton({
         color: Colors.teal,
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
 
           Text(

@@ -1,10 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:win_drive/CustomButtons/custom_button.dart';
 import 'package:win_drive/Menu_drawer/drawer_page.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:win_drive/main_page/main_bottom_nevigation_bar.dart';
+import 'package:win_drive/main_page/custom_text_field.dart';
 import 'package:win_drive/main_page/vehicle_container.dart';
 
 class HomePage extends StatefulWidget {
@@ -44,25 +45,28 @@ class _HomePageState extends State<HomePage> {
           infoWindow: InfoWindow(title: 'Monem', snippet: 'chishty')));
     });
   }
-  bool isDrawer= true;
+
+  bool isDrawer = true;
 
   @override
   void initState() {
     super.initState();
     getCurrentLocation();
-    Timer(Duration(seconds: 3), () { BottomSheetFunction(); });
-
+    Timer(Duration(seconds: 3), () {
+      BottomSheetFunction();
+    });
   }
+
   var _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       key: _scaffoldKey,
-      drawer:  new DrawerPage(),
+      drawer: new DrawerPage(),
       body: SafeArea(
         child: InkWell(
-          onTap: (){
+          onTap: () {
             BottomSheetFunction();
           },
           child: Stack(
@@ -82,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
-                      onTap: (){
+                      onTap: () {
                         _scaffoldKey.currentState?.openDrawer();
                       },
                       child: Container(
@@ -90,36 +94,37 @@ class _HomePageState extends State<HomePage> {
                           shape: BoxShape.circle,
                           color: Colors.white,
                         ),
-                        child:  Padding(
+                        child: Padding(
                           padding: const EdgeInsets.all(10.0),
-                          child: Icon(Icons.menu,size: 25,),
+                          child: Icon(
+                            Icons.menu,
+                            size: 25,
+                          ),
                         ),
-
                       ),
-                    ) ,
+                    ),
                   ),
                   InkWell(
-                    onTap: (){
-
+                    onTap: () {
                       BottomSheetFunction();
-
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
                         decoration: BoxDecoration(
-                          shape: BoxShape.circle,
+                          borderRadius: BorderRadius.circular(15.0),
                           color: Colors.white,
                         ),
-                        child:  Padding(
+                        child: Padding(
                           padding: const EdgeInsets.all(10.0),
-                          child: Icon(Icons.share_outlined,size: 25,),
+                          child: Icon(
+                            Icons.share_outlined,
+                            size: 25,
+                          ),
                         ),
-
-                      ) ,
+                      ),
                     ),
                   )
-
                 ],
               )
             ],
@@ -128,79 +133,123 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
- bool isShowBottomSheet=true;
-  void BottomSheetFunction(){
+
+  bool isShowBottomSheet = true;
+
+  void BottomSheetFunction() {
     var screenSize = MediaQuery.of(context).size;
     showModalBottomSheet(
+      shape: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(30.0)
+      ),
         context: context,
-        builder: (builder){
-          return new Container(
-            height: screenSize.height*0.5,
-            color: Colors.green,
-            child: new Column(
-              children: [
-              Container(
-              //height: screenSize.height*0.5,
-              color: Colors.white,
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      SingleChildScrollView(
-                              child: ListView(
-                            children: [
-                             InkWell(
-                               onTap: (){},
-                               child: Container(
-                                 height: 10,
-                                 width: 10,
-                               ),
-                             ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              // CustomContainer(
-                              //     title: "Ride Ac",
-                              //     vehicleImage: "assets/imran/instagram.png",
-                              //     onClick: () {}),
-                              // SizedBox(
-                              //   width: 10,
-                              // ),
-                              // CustomContainer(
-                              //     title: "Ride Ac",
-                              //     vehicleImage: "assets/imran/instagram.png",
-                              //     onClick: () {}),
-                              // SizedBox(
-                              //   width: 10,
-                              // ),
-                              // CustomContainer(
-                              //     title: "Ride Ac",
-                              //     vehicleImage: "assets/imran/instagram.png",
-                              //     onClick: () {}),
-                              // SizedBox(
-                              //   width: 10,
-                              // ),
-                              // CustomContainer(
-                              //     title: "Ride Ac",
-                              //     vehicleImage: "assets/imran/instagram.png",
-                              //     onClick: () {}),
-                              // SizedBox(
-                              //   width: 10,
-                              // ),
-                            ],
-                          )
+        builder: (builder) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: new Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              height: screenSize.height * 0.5,
+              child: SingleChildScrollView(
+                child: new Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                   child: Padding(
+                     padding: const EdgeInsets.all(8.0),
+                     child: Row(
+                        children: [
+                          InkWell(
+                            onTap: () {},
+                            child: CustomContainer(
+                                title: "Car AC",
+                                vehicleImage: "assets/imran/bycicle.png",
+                                onClick: () {}),
+                            ),
+                          SizedBox(width: 10,),
+                          InkWell(
+                            onTap: () {},
+                            child: CustomContainer(
+                                title: "CAR",
+                                vehicleImage: "assets/imran/box_truck.png",
+                                onClick: () {}),
+                          ),
+                          SizedBox(width: 10,),
+                          InkWell(
+                            onTap: () {},
+                            child: CustomContainer(
+                                title: "Mini car",
+                                vehicleImage: "assets/imran/door_to_door.png",
+                                onClick: () {}),
+                          ),
+                          SizedBox(width: 10,),
+                          InkWell(
+                            onTap: () {},
+                            child: CustomContainer(
+                                title: "Moto",
+                                vehicleImage: "assets/imran/sport_car.png",
+                                onClick: () {}),
+                          ),
+                          SizedBox(width: 10,),
+                          InkWell(
+                            onTap: () {},
+                            child: CustomContainer(
+                                title: "Auto",
+                                vehicleImage: "assets/imran/box_truck.png",
+                                onClick: () {}),
+                          ),
+                          SizedBox(width: 10,),
+                          InkWell(
+                            onTap: () {},
+                            child: CustomContainer(
+                                title: "Auto",
+                                vehicleImage: "assets/imran/box_truck.png",
+                                onClick: () {}),
+                          ),
+                        ],
                       ),
-                    ],
-                  )
-                ],
+                   ),
+                    ),
+                    Divider(
+                      height: 2,
+                    ),
+                    CustomTextField(
+                        initialTitle: "Current Location",
+                        icon: Icons.center_focus_strong,
+                        onClick: () {}),
+                    CustomTextField(
+                        initialTitle: "Destination",
+                        icon: Icons.center_focus_strong,
+                        onClick: () {}),
+                    TextFormField(
+                      cursorColor: Colors.teal,
+                      initialValue: "Offer your fare",
+                      maxLength: 20,
+                      decoration:
+                      InputDecoration(
+                        contentPadding: EdgeInsets.zero,
+                        prefix: Text("PKR  ",style: TextStyle(
+                          color: Colors.black,
+                        ),),
+
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFF6200EE)),
+                        ),
+                      ),
+                    ),
+                    CustomTextField(
+                        initialTitle: "Comment and wishes",
+                        icon: Icons.chat,
+                        onClick: () {}),
+                    CustomButton(title: "Find a driver", onClick: (){}),
+                  ],
+                ),
               ),
             ),
-
-              ],
-            ),
           );
-        }
-    );
+        });
   }
-
 }
