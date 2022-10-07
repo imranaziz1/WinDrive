@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:win_drive/City/request_city.dart';
 import 'package:win_drive/CustomButtons/custom_button.dart';
 import 'package:win_drive/FAQ/faq.dart';
-import 'package:win_drive/Intercity/intercity.dart';
 import 'package:win_drive/Registration/registration.dart';
 import 'package:win_drive/Request%20history/request_history.dart';
 import 'package:win_drive/Safety/saftey.dart';
 import 'package:win_drive/Support/support.dart';
-import 'package:win_drive/Truck%20NEW/truck_new.dart';
 
 import '../BasicInfo/basic_info.dart';
+import '../MainPage/home_page.dart';
 import '../Setting/setting_screen.dart';
 
 class DrawerPage extends StatefulWidget {
@@ -30,25 +29,26 @@ class _DrawerPageState extends State<DrawerPage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            ListTile(
-              selectedTileColor: Colors.pink.shade300,
-              title: Text("User Name"),
-              trailing: IconButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => BasicInfo()));
-                  },
-                  icon: Icon(Icons.navigate_next)),
-              leading: CircleAvatar(
-                child: Container(
-                  width: 200,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/imran/user.png'),
-                      fit: BoxFit.cover,
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => BasicInfo()));
+              },
+              child: ListTile(
+                selectedTileColor: Colors.pink.shade300,
+                title: Text("User Name"),
+                trailing:  Icon(Icons.navigate_next),
+                leading: CircleAvatar(
+                  child: Container(
+                    width: 200,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/imran/user.png'),
+                        fit: BoxFit.cover,
+                      ),
+                      borderRadius: BorderRadius.circular(13.9),
                     ),
-                    borderRadius: BorderRadius.circular(13.9),
                   ),
                 ),
               ),
@@ -81,18 +81,18 @@ class _DrawerPageState extends State<DrawerPage> {
               selectedTileColor: Colors.black12,
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Intercity()));
+                    MaterialPageRoute(builder: (context) => HomePage()));
               },
             ),
-            ListTile(
-              leading: Icon(Icons.fire_truck_sharp),
-              title: Text('Truck New'),
-              selectedTileColor: Colors.black12,
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => TruckNew()));
-              },
-            ),
+            // ListTile(
+            //   leading: Icon(Icons.fire_truck_sharp),
+            //   title: Text('Truck New'),
+            //   selectedTileColor: Colors.black12,
+            //   onTap: () {
+            //     Navigator.push(context,
+            //         MaterialPageRoute(builder: (context) => TruckNew()));
+            //   },
+            // ),
             ListTile(
               leading: Icon(Icons.health_and_safety),
               title: Text('Safety'),
