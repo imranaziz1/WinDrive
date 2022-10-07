@@ -9,8 +9,8 @@ import 'package:win_drive/Safety/saftey.dart';
 import 'package:win_drive/Support/support.dart';
 import 'package:win_drive/Truck%20NEW/truck_new.dart';
 
+import '../BasicInfo/basic_info.dart';
 import '../Setting/setting_screen.dart';
-import '../basic_info/basic_info.dart';
 
 class DrawerPage extends StatefulWidget {
   const DrawerPage({Key? key}) : super(key: key);
