@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.win_drive">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
    <application
         android:label="win_drive"
@@ -33,6 +35,6 @@
             android:name="flutterEmbedding"
             android:value="2" />
        <meta-data android:name="com.google.android.geo.API_KEY"
-           android:value="AIzaSyC1XumqZaKF7uzEvYsfxwoEWU67QWh-JXU"/>
+           android:value="AIzaSyBCjDmUif5S9orcK4e4dtqQ3IWtaG6tJnw"/>
     </application>
 </manifest>
