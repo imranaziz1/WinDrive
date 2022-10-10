@@ -10,19 +10,16 @@ Widget CustomButton({
   return InkWell(
     onTap: onClick,
     child: Container(
-
-      alignment: Alignment.center,
-      height: 50,
-      width: 200,
+       height: 50,
+       width: 250,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(100),
+        borderRadius: BorderRadius.circular(20),
         color: Colors.teal,
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-
-          Text(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: Text(
             title,
             textAlign: TextAlign.center,
             style: GoogleFonts.dmSans(
@@ -31,7 +28,8 @@ Widget CustomButton({
               fontWeight: FontWeight.w800,
             ),
           ),
-        ],
-      ),),
+        ),
+      ),
+    ),
   );
 }
