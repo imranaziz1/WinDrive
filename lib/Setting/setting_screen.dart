@@ -8,11 +8,7 @@ import 'language.dart';
 import 'navigator.dart';
 import 'nightMode.dart';
 
-
-
 class SettingScreen extends StatefulWidget {
-
-
   @override
   State<SettingScreen> createState() => _SettingScreenState();
 }
@@ -35,23 +31,24 @@ ListTile _listTile1(Function() ontap, String title, String subtitle) {
   );
 }
 
-ListTile _listTile2(Function() ontap, String title) {
+ListTile _listTile2(context, Function() ontap, String title) {
   return ListTile(
-    onTap: ontap,
+    onTap: () => Navigator.push(
+        context, MaterialPageRoute(builder: (context) => ontap())),
     title: Text(title),
     trailing: const Icon(Icons.arrow_forward_ios_outlined),
   );
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-  String SelectedTab = 'setting';
+  String SelectedTab = 'safety';
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: ()async {
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
-        return false;
+        onWillPop: ()async {
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+      return false;
       },
       child: Scaffold(
         drawer: SafeArea(child: new DrawerPage(
@@ -61,11 +58,12 @@ class _SettingScreenState extends State<SettingScreen> {
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,
           title: Text('Setting'),
+
         ),
         body: Column(
           children: <Widget>[
             _listTile1(
-              () => showDialog(
+                  () => showDialog(
                 context: context,
                 barrierDismissible: true, // user may or may not tap button!
                 builder: (BuildContext context) {
@@ -95,30 +93,18 @@ class _SettingScreenState extends State<SettingScreen> {
                   MaterialPageRoute(
                       builder: (context) => Language(pageName: _pageName[1])));
             }, _pageName[1], "Default language"),
-            _listTile2(() {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => DateDistances(pageName: _pageName[2])));
-            }, _pageName[2]),
+            _listTile2(context, () => DateDistances(pageName: _pageName[2]),
+                _pageName[2]),
             _listTile1(() {
               Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => NightMode(pageName: _pageName[3])));
             }, _pageName[3], "System"),
-            _listTile2(() {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => Navigtor(pageName: _pageName[4])));
-            }, _pageName[4]),
-            _listTile2(() {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => RulesTerms(pageName: _pageName[5])));
-            }, _pageName[5]),
+            _listTile2(
+                context, () => Navigtor(pageName: _pageName[4]), _pageName[4]),
+            _listTile2(
+                context, () => RulesTerms(pageName: _pageName[5]), _pageName[5]),
             InkWell(
               onTap: () {
                 showDialog(
@@ -147,7 +133,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 children: const [
                   Padding(
                     padding:
-                        EdgeInsets.symmetric(horizontal: 18.0, vertical: 18.0),
+                    EdgeInsets.symmetric(horizontal: 18.0, vertical: 18.0),
                     child: Text(
                       'Log out',
                       style: TextStyle(color: Colors.blue, fontSize: 15.0),

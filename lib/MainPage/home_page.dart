@@ -11,6 +11,7 @@ import '../MenuDrawer/drawer_page.dart';
 import 'main_bottom_container.dart';
 
 
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -40,8 +41,7 @@ class _HomePageState extends State<HomePage> {
 
   late BitmapDescriptor icon;
   late BitmapDescriptor icon1;
-  late BitmapDescriptor icon2;
-  late BitmapDescriptor icon3;
+
 
   getIcons() async {
     var icon = await BitmapDescriptor.fromAssetImage(
@@ -50,17 +50,11 @@ class _HomePageState extends State<HomePage> {
     var icon1=await BitmapDescriptor.fromAssetImage(
         ImageConfiguration(devicePixelRatio: 7.5),
         "assets/imran/car.png");
-    var icon2=await BitmapDescriptor.fromAssetImage(
-        ImageConfiguration(devicePixelRatio: 7.5),
-        "assets/imran/truck2.png");
-    var icon3=await BitmapDescriptor.fromAssetImage(
-        ImageConfiguration(devicePixelRatio: 7.5),
-        "assets/imran/byke.png");
+
     setState(() {
       this.icon = icon;
       this.icon1 = icon1;
-      this.icon2 = icon2;
-      this.icon3 = icon3;
+
     });
   }
   GoogleMapController? mapController; //contrller for Google map
@@ -69,7 +63,7 @@ class _HomePageState extends State<HomePage> {
   bool isShowBottomSheet = true;
   bool isShowTopIcons = true;
 
-  String googleAPiKey = "AIzaSyC1XumqZaKF7uzEvYsfxwoEWU67QWh-JXU";
+  String googleAPiKey = "AIzaSyBCjDmUif5S9orcK4e4dtqQ3IWtaG6tJnw";
   Map<PolylineId, Polyline> polylines = {};
   LatLng startLocation = LatLng(33.8022151, 72.7501235);
   LatLng endLocation = LatLng(33.48966, 73.196911);
@@ -91,20 +85,7 @@ class _HomePageState extends State<HomePage> {
             title: 'Starting Point ',
             snippet: 'Start Marker',
           )));
-          //position: LatLng(33.8022151, 72.7501235),
 
-      _markers.add(Marker(
-        //defaultMarkerWithHue(BitmapDescriptor.hueRed)
-          icon: icon2,
-          markerId: const MarkerId('thirdMark'),
-          position: LatLng(33.6596808, 72.084172),
-          infoWindow: InfoWindow(title: 'saqib', snippet: 'rider')));
-      _markers.add(Marker(
-        //defaultMarkerWithHue(BitmapDescriptor.hueRed)
-          icon: icon3,
-          markerId: const MarkerId('fourthMark'),
-          position: LatLng(33.9141273, 73.4046674),
-          infoWindow: InfoWindow(title: 'ejaz', snippet: 'Pilot')));
     });
     getDirections(); //fetch direction polylines from Google API
 
@@ -196,8 +177,8 @@ class _HomePageState extends State<HomePage> {
               myLocationEnabled: true,
               onMapCreated: _onMapCreated,
                initialCameraPosition: CameraPosition(
-                  target: LatLng(30.3753, 69.3451),
-                  zoom: 5,
+                  target: LatLng(33.8022151, 72.7501235),
+                  zoom: 8,
                 ),
               markers: _markers,
             ),

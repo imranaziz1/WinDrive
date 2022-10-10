@@ -16,20 +16,21 @@ Widget CustomButton({
       alignment: Alignment.center,
       height: 50.h,
       width: 300.w,
+
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(100),
+        borderRadius: BorderRadius.circular(20),
         color: Colors.teal,
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-
-          Text(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: Text(
             title,
             textAlign: TextAlign.center,
             style:Theme.of(context).textTheme.bodyMedium
           ),
-        ],
-      ),),
+        ),
+      ),
+    ),
   );
 }

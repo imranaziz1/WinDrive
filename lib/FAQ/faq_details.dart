@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:win_drive/FAQ/faqSubWidget.dart';
 import 'package:win_drive/Support/support.dart';
 class FaqDetails extends StatelessWidget {
   final String name;
@@ -62,9 +61,7 @@ class FaqDetails extends StatelessWidget {
                 Text("${name}",style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w700),),
                 SizedBox(height: 20,),
                 Text("${subtitle}",style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.w400),),
-                SizedBox(height: 200,),
-
-
+                SizedBox(height: 200),
               ],),
           ),
         ),
@@ -79,8 +76,7 @@ class FaqDetails extends StatelessWidget {
                     InkWell(
                       onTap:(){
                         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Support()));
-                      }
-                      ,
+                      },
                       child: Container(
               height: 70,
               width: MediaQuery.of(context).size.width*0.9,
