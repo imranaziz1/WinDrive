@@ -38,6 +38,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   image_picker: ^0.8.5+3
   flutter_share: ^2.0.0
+  flutter_screenutil: ^5.5.4
   file_picker: ^5.2.0+1
   screenshot: ^1.2.3
   share_plus:

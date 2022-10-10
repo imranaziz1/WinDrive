@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -38,8 +39,17 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // double screenHeight = MediaQuery.of(context).size.height - 20;
-    return Scaffold(
+     double screenHeight = MediaQuery.of(context).size.height;
+     double screenWidth = MediaQuery.of(context).size.width;
+     print("................................................................");
+     print(screenHeight);
+     print(screenWidth);
+     print("................................................................");
+
+
+
+
+     return Scaffold(
       body: SafeArea(
         child: Container(
           height: MediaQuery.of(context).size.height,
@@ -60,14 +70,10 @@ class _LoginScreenState extends State<LoginScreen> {
                      child: Text(
                        'Join us via phone number',
                        textAlign: TextAlign.center,
-                      style: GoogleFonts.dmSans(
-                         color: Color(0xff06161C),
-                         fontSize: 20,
-                         fontWeight: FontWeight.w800,
-                       ),
+                      style:Theme.of(context).textTheme.bodyLarge
                      ),
                    ),
-                   SizedBox(height: 20,),
+                   SizedBox(height: 20.h,),
 
                    Padding(
                      padding: const EdgeInsets.symmetric(horizontal: 28.0),
@@ -103,12 +109,13 @@ class _LoginScreenState extends State<LoginScreen> {
                        },
                      ),
                    ),
-                   SizedBox(height: 20,),
+                   SizedBox(height: 20.h,),
                    Padding(
                      padding: const EdgeInsets.only(bottom: 10.0),
                      child: Center(
                        child: InkWell(
                          onTap: () {
+
                            showMaterialModalBottomSheet(
 
                                shape: OutlineInputBorder(
@@ -124,59 +131,68 @@ class _LoginScreenState extends State<LoginScreen> {
                                ),
                                context: context,
                                builder: (context) =>Container(
-                                 height: MediaQuery.of(context).size.height*0.4,
+                                 height: 350.h,
                                  child:Column(
                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                                    children: [
-                                     SizedBox(height: 10,),
+                                     SizedBox(height: 10.h,),
 
-                                     Text("Choose an authorization\n method", textAlign: TextAlign.center,style: TextStyle(
-                                       fontSize: 25,
-                                       fontWeight: FontWeight.w700
-                                     ),),
-                                     SizedBox(height: 10,),
+                                     Text("Choose an authorization\n method", textAlign: TextAlign.center,style: Theme.of(context).textTheme.bodyLarge,),
+                                     SizedBox(height: 10.h,),
                                      InkWell(
                                        onTap: (){
+                                         Navigator.pop(context);
                                          Navigator.push(context, MaterialPageRoute(builder: (context)=>SendVerificationCode()));
                                        },
                                        child: Container(
-                                         height: 50,
+                                         height: 50.h,
                                          width: MediaQuery.of(context).size.width*0.9,
                                          decoration: BoxDecoration(
                                              color: Colors.teal,
                                              borderRadius: BorderRadius.circular(20)
                                          ),
-                                         child: Center(child: Text("Via WatsApp",style: TextStyle(fontSize: 18),)),
+                                         child: Center(child: Text("Via WatsApp",style: Theme.of(context).textTheme.bodyMedium)),
 
                                        ),
                                      ),
                                      InkWell(
                                        onTap: (){
+                                         Navigator.pop(context);
                                          Navigator.push(context, MaterialPageRoute(builder: (context)=>SendVerificationCode()));
                                        },
                                        child: Container(
-                                         height: 50,
+                                         height: 50.h,
                                          width: MediaQuery.of(context).size.width*0.9,
                                          decoration: BoxDecoration(
                                              color: Colors.grey.shade200,
                                              borderRadius: BorderRadius.circular(20)
                                          ),
-                                         child: Center(child: Text("Via call",style: TextStyle(fontSize: 18),)),
+                                         child: Center(child: Text("Via call",style: GoogleFonts.dmSans(
+                                           fontWeight: FontWeight.w300,
+                                           fontSize: 20.sp,
+                                           color: Colors.black,
+                                         ))),
 
                                        ),
                                      ),
                                      InkWell(
+
                                        onTap: (){
+                                         Navigator.pop(context);
                                          Navigator.push(context, MaterialPageRoute(builder: (context)=>SendVerificationCode()));
                                        },
                                        child: Container(
-                                         height: 50,
+                                         height: 50.h,
                                          width: MediaQuery.of(context).size.width*0.9,
                                          decoration: BoxDecoration(
                                              color: Colors.grey.shade200,
                                              borderRadius: BorderRadius.circular(20)
                                          ),
-                                         child: Center(child: Text("Via SMS",style: TextStyle(fontSize: 18),)),
+                                         child: Center(child: Text("Via SMS",style: GoogleFonts.dmSans(
+                                           fontWeight: FontWeight.w300,
+                                           fontSize: 20.sp,
+                                           color: Colors.black,
+                                         ))),
 
                                        ),
                                      ),
@@ -192,20 +208,16 @@ class _LoginScreenState extends State<LoginScreen> {
                            // Navigator.push(context, MaterialPageRoute(builder: (context)=>SendVerificationCode()));
                          // },
                          child: Container(
-                           width: 300,
-                           height: 55,
+                           width: 300.w,
+                           height: 55.h,
                            decoration: BoxDecoration(
                                borderRadius: BorderRadius.circular(30),
-                               color: Colors.teal
+                               color: Theme.of(context).primaryColor
                            ),
                            child: Center(
                              child: Text(
                                'Next',
-                               style: GoogleFonts.dmSans(
-                                 fontWeight: FontWeight.w700,
-                                 fontSize: 18,
-                                 color: Colors.white,
-                               ),
+                               style:Theme.of(context).textTheme.bodyMedium
                              ),
                            ),
 
@@ -217,29 +229,29 @@ class _LoginScreenState extends State<LoginScreen> {
                ),
              ),
              Positioned(
-               bottom: 10,
+               bottom: 10.h,
                left: 50,
                right: 50,
                child:  Center(
                  child: Container(
-                 width: 344,
+                 width: 344.w,
                  child: Column(
                    children: [
                      Row(
                        mainAxisAlignment: MainAxisAlignment.center,
                        children: [
                          Container(
-                           height: 30,
+                           height: 30.h,
                            child: Image.asset("assets/images/google (1).png") ,
                          ),
-                         SizedBox(width: 10,),
+                         SizedBox(width: 10.w,),
                          Container(
-                           height: 30,
+                           height: 30.h,
                            child: Image.asset("assets/images/mac-os-logo.png") ,
                          )
                        ],
                      ),
-                     SizedBox(height: 20,),
+                     SizedBox(height: 20.h,),
                      RichText(
                        textAlign: TextAlign.center,
                        text: TextSpan(
@@ -247,7 +259,7 @@ class _LoginScreenState extends State<LoginScreen> {
                            TextSpan(
                              text: 'By tapping "Next" you agree to ',
                              style: GoogleFonts.dmSans(
-                               fontSize: 12,
+                               fontSize: 12.sp,
                                fontWeight: FontWeight.w500,
                                color: Color(0xffA9A9AA),
                              ),
@@ -256,16 +268,16 @@ class _LoginScreenState extends State<LoginScreen> {
                          TextSpan(
                            text: 'Terms & Conditions',
                            style: GoogleFonts.dmSans(
-                             fontSize: 12,
+                             fontSize: 12.sp,
                              fontWeight: FontWeight.w500,
-                             color: Colors.teal,
+                             color: Theme.of(context).primaryColor,
                              decoration: TextDecoration.underline,
 
                            ),),
                            TextSpan(
                              text: ' and ',
                              style: GoogleFonts.dmSans(
-                               fontSize: 12,
+                               fontSize: 12.sp,
                                fontWeight: FontWeight.w500,
                                color: Color(0xffA9A9AA),
                              ),
@@ -274,9 +286,9 @@ class _LoginScreenState extends State<LoginScreen> {
                          TextSpan(
                            text: 'Privacy Policy',
                            style: GoogleFonts.dmSans(
-                             fontSize: 12,
+                             fontSize: 12.sp,
                              fontWeight: FontWeight.w500,
-                             color: Colors.teal,
+                             color: Theme.of(context).primaryColor,
                              decoration: TextDecoration.underline,
 
                            ),

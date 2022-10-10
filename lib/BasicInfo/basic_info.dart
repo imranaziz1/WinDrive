@@ -134,7 +134,7 @@ class _BasicInfoState extends State<BasicInfo> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SizedBox(height: 10,),
-                          CustomButton(title: "Save", onClick: (){}),
+                          CustomButton(title: "Save", context: context,onClick: (){}),
                         ],
                       )
                     ],

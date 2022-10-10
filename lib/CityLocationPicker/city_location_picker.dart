@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:win_drive/WelcomeScreen/welcome_screen.dart';
 import 'package:win_drive/Widgets/add_location_dialog.dart';
@@ -20,31 +21,27 @@ class CityLocationPicker extends StatelessWidget {
                 Text(
                   'Are you in this city?',
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.dmSans(
-                    color: Color(0xff06161C),
-                    fontSize: 25,
-                    fontWeight: FontWeight.w800,
-                  ),
+                  style: Theme.of(context).textTheme.bodyLarge
                 ),
               ],
             ),
             Column(
               children: [
                 Container(
-                    height: 100,
+                    height: 100.h,
                     child: Image.asset("assets/images/location.png")),
-                SizedBox(height: 5,),
+                SizedBox(height: 5.h,),
 
                 Text(
                   'Select your city',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.dmSans(
                     color: Color(0xff06161C),
-                    fontSize: 20,
+                    fontSize: 20.sp,
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                SizedBox(height: 5,),
+                SizedBox(height: 5.h,),
                 InkWell(
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>AddLocationDialog()));
@@ -54,8 +51,8 @@ class CityLocationPicker extends StatelessWidget {
                     'Edit',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.dmSans(
-                      color:  Colors.teal,
-                      fontSize: 15,
+                      color:  Theme.of(context).primaryColor,
+                      fontSize: 15.sp,
                       fontWeight: FontWeight.w800,
                     ),
                   ),
@@ -66,8 +63,9 @@ class CityLocationPicker extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 18.0),
               child: Center(
                 child: Container(
-                  width: 300,
-                  height: 55,
+                  width:  MediaQuery.of(context).size.width*0.9,
+
+                  height: 55.h,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>WelcomeScreen()));
@@ -76,14 +74,10 @@ class CityLocationPicker extends StatelessWidget {
                     },
                     child: Text(
                       'Next',
-                      style: GoogleFonts.dmSans(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
+                      style: Theme.of(context).textTheme.bodyMedium
                     ),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.teal,
+                      primary: Theme.of(context).primaryColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(100),
                       ),
