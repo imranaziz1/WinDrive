@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:win_drive/Constants/colors.dart';
 
 import 'Login/login_screen.dart';
+import 'WelcomeScreen/welcome_screen.dart';
 
 void main() { runApp(MyApp());}
 
@@ -9,7 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+theme: ThemeData(
+  primaryColor: Constants.kPrimaryColor,
 
+),
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,
     );
