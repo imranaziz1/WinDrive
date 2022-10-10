@@ -41,7 +41,7 @@ ListTile _listTile2(context, Function() ontap, String title) {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
-  String SelectedTab = 'safety';
+  String SelectedTab = 'setting';
 
   @override
   Widget build(BuildContext context) {
