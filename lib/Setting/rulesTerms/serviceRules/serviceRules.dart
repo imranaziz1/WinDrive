@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
+import '/Setting/rulesTerms/serviceRules/blockingAccount.dart';
+import '/Setting/rulesTerms/serviceRules/courierDoNot.dart';
+import '/Setting/rulesTerms/serviceRules/freight.dart';
+import '/Setting/rulesTerms/serviceRules/parcelVerification.dart';
+import '/Setting/rulesTerms/serviceRules/rulesForPassengers.dart';
+
 class ServiceRules extends StatelessWidget {
   ServiceRules({Key? key}) : super(key: key);
+
+  final String pageName = 'Service Rules';
 
   final List<String> _tileName = [
     'Rules for passengers',
@@ -11,20 +19,21 @@ class ServiceRules extends StatelessWidget {
     'Blocking an account',
   ];
 
-  InkWell _tile(String title, context) {
+  InkWell _tile(context, Function ontap, String title) {
     return InkWell(
-      onTap: (){
-        // Navigator.push(
-        //     context,
-        //     MaterialPageRoute(
-        //         builder: (context) => Language(pageName: _pageName[1])));
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ontap()));
       },
       child: Container(
         margin: EdgeInsets.only(top: 2),
         color: Colors.white,
         child: ListTile(
           title: Text(title),
-          trailing: Icon(Icons.arrow_forward_ios_outlined, color: Colors.black,),
+          trailing: Icon(
+            Icons.arrow_forward_ios_outlined,
+            color: Colors.black,
+          ),
         ),
       ),
     );
@@ -35,11 +44,11 @@ class ServiceRules extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: GestureDetector(
-            onTap: () => Navigator.of(context).pop(),
+            onTap: () => Navigator.pop(context),
             child: const Icon(Icons.arrow_back)),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
-        title: const Text('Service Rules'),
+        title: Text(pageName),
       ),
       body: Container(
         color: Colors.grey[100],
@@ -55,11 +64,17 @@ class ServiceRules extends StatelessWidget {
             Container(
               child: Column(
                 children: [
-                  // _tile(_tileName[0]),
-                  // _tile(_tileName[1]),
-                  // _tile(_tileName[2]),
-                  // _tile(_tileName[3]),
-                  // _tile(_tileName[4]),
+                  _tile(context, () => RulesForPassengers(pageName: pageName),
+                      _tileName[0]),
+                  _tile(context, () => ParcelVerification(pageName: pageName),
+                      _tileName[1]),
+                  _tile(context, () => CouriersDoNot(pageName: pageName),
+                      _tileName[2]),
+                  _tile(
+                      context, () => Freight(pageName: pageName), _tileName[3]),
+                  _tile(context, () => BlockingAccount(pageName: pageName),
+                      _tileName[4]),
+                  SizedBox(height: 20),
                 ],
               ),
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:win_drive/Setting/setting_screen.dart';
 
 import '/setting/rulesTerms/licenses.dart';
 import '/setting/rulesTerms/privacyPolicy.dart';
@@ -22,7 +23,10 @@ class RulesTerms extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: GestureDetector(
-            onTap: () => Navigator.of(context).pop(),
+            // onTap: () => Navigator.of(context).pop(),
+          // onTap: () => Navigator.pop(context),
+          onTap: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => SettingScreen())),
+          // onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => SettingScreen())),
             child: const Icon(Icons.arrow_back)),
         backgroundColor: Colors.white,
         foregroundColor: Colors.black,
