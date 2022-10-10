@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:win_drive/City/request_city.dart';
 import 'package:win_drive/CustomButtons/custom_button.dart';
 import 'package:win_drive/FAQ/faq.dart';
 import 'package:win_drive/Registration/registration.dart';
@@ -12,13 +11,18 @@ import '../MainPage/home_page.dart';
 import '../Setting/setting_screen.dart';
 
 class DrawerPage extends StatefulWidget {
-  const DrawerPage({Key? key}) : super(key: key);
+
+  String? SelectedTab;
+   DrawerPage({Key? key,
+     this.SelectedTab,
+  }) : super(key: key);
 
   @override
   State<DrawerPage> createState() => _DrawerPageState();
 }
 
 class _DrawerPageState extends State<DrawerPage> {
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -58,19 +62,33 @@ class _DrawerPageState extends State<DrawerPage> {
               thickness: 2,
             ),
             ListTile(
+              selectedTileColor: Colors.black12,
+              selected: widget.SelectedTab=='city'?true:false,
               leading: Icon(Icons.location_city),
               title: Text('City'),
-              selectedTileColor: Colors.black12,
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomePage()));
+    Navigator.push(context,
+    MaterialPageRoute(builder: (context) => HomePage()));
+
+                setState((){
+                  widget.SelectedTab = 'city';
+                });
+
               },
             ),
             ListTile(
               leading: Icon(Icons.access_time),
               title: Text('Request history'),
               selectedTileColor: Colors.black12,
+              selected: widget.SelectedTab=='history'?true:false,
+
               onTap: () {
+                setState((){
+                  widget.SelectedTab = 'history';
+
+                });
+
+
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => RequestHistory()));
               },
@@ -79,25 +97,30 @@ class _DrawerPageState extends State<DrawerPage> {
               leading: Icon(Icons.reduce_capacity_outlined),
               title: Text('Intercity'),
               selectedTileColor: Colors.black12,
+              selected: widget.SelectedTab=='intercity'?true:false,
+
               onTap: () {
+                setState((){
+                  widget.SelectedTab = 'intercity';
+                });
+
+
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => HomePage()));
               },
             ),
-            // ListTile(
-            //   leading: Icon(Icons.fire_truck_sharp),
-            //   title: Text('Truck New'),
-            //   selectedTileColor: Colors.black12,
-            //   onTap: () {
-            //     Navigator.push(context,
-            //         MaterialPageRoute(builder: (context) => TruckNew()));
-            //   },
-            // ),
             ListTile(
               leading: Icon(Icons.health_and_safety),
               title: Text('Safety'),
               selectedTileColor: Colors.black12,
+              selected: widget.SelectedTab=='safety'?true:false,
+
               onTap: () {
+                setState((){
+                  widget.SelectedTab = 'safety';
+                });
+
+
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => Safety()));
               },
@@ -105,9 +128,15 @@ class _DrawerPageState extends State<DrawerPage> {
             ListTile(
               leading: Icon(Icons.settings),
               title: Text('Setting'),
-              selected: true,
               selectedTileColor: Colors.black12,
+              selected: widget.SelectedTab=='setting'?true:false,
+
               onTap: () {
+                setState((){
+                  widget.SelectedTab = 'setting';
+                });
+
+
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => SettingScreen()));
               },
@@ -115,7 +144,15 @@ class _DrawerPageState extends State<DrawerPage> {
             ListTile(
               leading: Icon(Icons.error_outline_outlined),
               title: Text('FAQ'),
+              selected: widget.SelectedTab=='faq'?true:false,
+              selectedTileColor: Colors.black12,
+
               onTap: () {
+                setState((){
+                  widget.SelectedTab = 'faq';
+                });
+
+
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => FaqScreen()));
               },
@@ -123,7 +160,15 @@ class _DrawerPageState extends State<DrawerPage> {
             ListTile(
               leading: Icon(Icons.message_rounded),
               title: Text('Support'),
+              selected: widget.SelectedTab=='support'?true:false,
+              selectedTileColor: Colors.black12,
+
               onTap: () {
+                setState((){
+                  widget.SelectedTab = 'support';
+                });
+
+
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Support()));
               },

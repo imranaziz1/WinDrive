@@ -154,6 +154,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   var _scaffoldKey = new GlobalKey<ScaffoldState>();
+  String SelectedTab = 'city';
 
   @override
   Widget build(BuildContext context) {
@@ -161,7 +162,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       key: _scaffoldKey,
 
-      drawer: SafeArea(child: new DrawerPage()),
+      drawer: SafeArea(child: new DrawerPage(
+          SelectedTab:SelectedTab
+
+
+      )),
       body: SafeArea(
         child: Stack(
           children: [
