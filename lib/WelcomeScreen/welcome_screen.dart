@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../Constants/colors.dart';
@@ -32,7 +33,7 @@ class WelcomeScreen extends StatelessWidget {
                                 style: TextStyle(
                                     color: Colors.grey,
                                     fontWeight: FontWeight.w400,
-                                    fontSize: 18
+                                    fontSize: 18.sp
                                 ),
                               )
                             ],
@@ -46,27 +47,14 @@ class WelcomeScreen extends StatelessWidget {
                 Text(
                   'Welcome to winDriver!',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w800,
-                    fontFamily: Constants.kFontFamily
-                  ),
-                  // style: GoogleFonts.dmSans(
-                  //
-                  //   color: Color(0xff06161C),
-                  //   fontSize: 24,
-                  //   fontWeight: FontWeight.w800,
-                  // ),
+                  style: Theme.of(context).textTheme.bodyLarge
+
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 20.h,),
                 Text(
                   'Lets get acquainted',
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.dmSans(
-                    color: Color(0xff06161C),
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: Theme.of(context).textTheme.bodySmall
                 ),
 
 
@@ -93,8 +81,8 @@ class WelcomeScreen extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 10.0),
               child: Center(
                 child: Container(
-                  width: 300,
-                  height: 55,
+                  width: MediaQuery.of(context).size.width*0.9,
+                  height: 55.h,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
@@ -103,14 +91,10 @@ class WelcomeScreen extends StatelessWidget {
                     },
                     child: Text(
                       'Next',
-                      style: GoogleFonts.dmSans(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 18,
-                        color: Colors.white,
-                      ),
+                      style:Theme.of(context).textTheme.bodyMedium
                     ),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.teal,
+                      primary: Theme.of(context).primaryColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(100),
                       ),

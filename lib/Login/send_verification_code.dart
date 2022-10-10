@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:win_drive/CityLocationPicker/city_location_picker.dart';
@@ -46,20 +47,16 @@ class _SendVerificationCodeState extends State<SendVerificationCode> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 18.0),
                       child: Text(
-                        'Join us via phone number',
+                        'Join us via phone \n number',
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.dmSans(
-                          color: Color(0xff06161C),
-                          fontSize: 20,
-                          fontWeight: FontWeight.w800,
-                        ),
+                        style:Theme.of(context).textTheme.bodyLarge
                       ),
                     ),
 
-                    SizedBox(height: 20,),
+                    SizedBox(height: 20.h,),
 
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 28.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 18.0),
                       child: InternationalPhoneNumberInput(
 
                         onInputChanged: (PhoneNumber number) {
@@ -91,11 +88,14 @@ class _SendVerificationCodeState extends State<SendVerificationCode> {
                         },
                       ),
                     ),
+                    SizedBox(height: 10.h,),
+
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 18.0),
                       child: TextFormField(
 
                         decoration: InputDecoration(
+                          contentPadding: EdgeInsets.zero,
 
 
 
@@ -103,7 +103,7 @@ class _SendVerificationCodeState extends State<SendVerificationCode> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 20,),
+                    SizedBox(height: 20.h,),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 10.0),
                       child: Center(
@@ -113,10 +113,11 @@ class _SendVerificationCodeState extends State<SendVerificationCode> {
                           },
                           child: Text(
                             'Resend text message',
+                            textAlign: TextAlign.center,
                             style: GoogleFonts.dmSans(
                               fontWeight: FontWeight.w500,
-                              fontSize: 18,
-                              color: Colors.teal,
+                              fontSize: 20.sp,
+                              color: Theme.of(context).primaryColor,
                             ),
                           ),
                         ),
@@ -126,9 +127,10 @@ class _SendVerificationCodeState extends State<SendVerificationCode> {
                 ),
               ),
               Positioned(
-                bottom: 10,
+                bottom: 10.h,
                 child:  Container(
-                  width: 344,
+                  width: 344.w
+                  ,
                   child: RichText(
                     textAlign: TextAlign.center,
                     text: TextSpan(
@@ -136,7 +138,7 @@ class _SendVerificationCodeState extends State<SendVerificationCode> {
                         TextSpan(
                           text: 'By tapping "Next" you agree to ',
                           style: GoogleFonts.dmSans(
-                            fontSize: 12,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.w500,
                             color: Color(0xffA9A9AA),
                           ),
@@ -144,9 +146,9 @@ class _SendVerificationCodeState extends State<SendVerificationCode> {
                         TextSpan(
                           text: 'Terms & Conditions',
                           style: GoogleFonts.dmSans(
-                            fontSize: 12,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.w500,
-                            color: Colors.teal,
+                            color: Theme.of(context).primaryColor,
                             decoration: TextDecoration.underline,
                           ),
                           recognizer: TapGestureRecognizer()..onTap = () {},
@@ -154,7 +156,7 @@ class _SendVerificationCodeState extends State<SendVerificationCode> {
                         TextSpan(
                           text: ' and ',
                           style: GoogleFonts.dmSans(
-                            fontSize: 12,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.w500,
                             color: Color(0xffA9A9AA),
                           ),
@@ -162,9 +164,9 @@ class _SendVerificationCodeState extends State<SendVerificationCode> {
                         TextSpan(
                           text: 'Privacy Policy',
                           style: GoogleFonts.dmSans(
-                            fontSize: 12,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.w500,
-                            color: Colors.teal,
+                            color: Theme.of(context).primaryColor,
                             decoration: TextDecoration.underline,
                           ),
                           recognizer: TapGestureRecognizer()..onTap = () {},

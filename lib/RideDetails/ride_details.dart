@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 class RideDetails extends StatelessWidget {
   const RideDetails({Key? key}) : super(key: key);
 
@@ -17,7 +18,7 @@ class RideDetails extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            height: 90,
+            height: 100.h,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               color: Colors.white,
@@ -31,12 +32,14 @@ class RideDetails extends StatelessWidget {
               ],
             ),
             child: Padding(
-              padding: const EdgeInsets.all(18.0),
+              padding: const EdgeInsets.all(8.0),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    height: 70,
-                    width: 70,
+                    height: 70.h,
+                    width: 70.w,
                     decoration: BoxDecoration(
                       color: Colors.teal,
                      shape: BoxShape.circle
@@ -45,25 +48,28 @@ class RideDetails extends StatelessWidget {
                       Icons.person_outline_rounded,color: Colors.white,size: 40,
                     ),
                   ),
+                  SizedBox(width: 10,),
                   Expanded(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Row(
                           children: [
-                            Text("Syad Muhammad "),
+                            Text("Syad Muhammad ",style: Theme.of(context).textTheme.bodySmall,),
                             Icon(Icons.star,color: Colors.yellowAccent,size: 20,),
-                            Text("4.8"),
+                            Text("4.8",style: Theme.of(context).textTheme.bodySmall,),
 
                           ],
                         ),
-                        Text("Red moter bike Union star, RIL 3307"),
+
+                        Text("Red moter bike Union star, RIL 3307",style: Theme.of(context).textTheme.bodySmall,),
 
                       ],
                     ),
                   ),
                   Container(
-                    height: 50,
-                    width: 50,
+                    height: 50.h,
+                    width: 50.w,
                     decoration: BoxDecoration(
                         color: Colors.lightGreenAccent.shade100,
                         shape: BoxShape.circle
@@ -79,13 +85,13 @@ class RideDetails extends StatelessWidget {
          Container(
            width: MediaQuery.of(context).size.width*0.95,
            decoration: BoxDecoration(
-             border: Border.all(width: 1,color: Colors.grey.shade300),
+             border: Border.all(width: 1.w,color: Colors.grey.shade300),
              borderRadius: BorderRadius.circular(10),
            ),
            child: Column(
              children: [
                Container(
-                 height: 200,
+                 height: 200.h,
                  width: MediaQuery.of(context).size.width*0.95,
                  decoration: BoxDecoration(
                      color: Colors.grey,
@@ -98,25 +104,25 @@ class RideDetails extends StatelessWidget {
                  ),
 
                ),
-               SizedBox(height: 10,),
+               SizedBox(height: 10.h,),
 
                Padding(
                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
                  child: Row(
                    children: [
                      Icon(Icons.date_range,color: Colors.grey,),
-                     Text("October 07,2022,05:40 AM"),
+                     Text("October 07,2022,05:40 AM",style: Theme.of(context).textTheme.bodySmall,),
                    ],
                  ),
                ),
-               SizedBox(height: 10,),
+               SizedBox(height: 10.h,),
                Padding(
                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
                  child: Row(
                    children: [
                      Container(
-                       height: 30,
-                       width: 30,
+                       height: 30.h,
+                       width: 30.w,
                        decoration: BoxDecoration(
                            color: Colors.blue,
                            shape: BoxShape.circle
@@ -128,7 +134,7 @@ class RideDetails extends StatelessWidget {
                            )),
                      ),
                      SizedBox(width: 10,),
-                     Text("6th Road"),
+                     Text("6th Road",style: Theme.of(context).textTheme.bodySmall,),
                    ],
                  ),
                ),
@@ -139,8 +145,8 @@ class RideDetails extends StatelessWidget {
                  child: Row(
                    children: [
                      Container(
-                       height: 30,
-                       width: 30,
+                       height: 30.h,
+                       width: 30.w,
                        decoration: BoxDecoration(
                            color: Colors.blue,
                            shape: BoxShape.circle
@@ -151,8 +157,8 @@ class RideDetails extends StatelessWidget {
                              style: TextStyle(color: Colors.white),
                            )),
                      ),
-                     SizedBox(width: 10,),
-                     Text("Faizabad"),
+                     SizedBox(width: 10.w,),
+                     Text("Faizabad",style: Theme.of(context).textTheme.bodySmall,),
                    ],
                  ),
                ),
@@ -160,7 +166,7 @@ class RideDetails extends StatelessWidget {
                  padding: const EdgeInsets.all(18.0),
                  child: Row(
                    children: [
-                     Text(" PKR  199, Cash",style: TextStyle(fontSize: 15),),
+                     Text(" PKR  199, Cash",style: TextStyle(fontSize: 15.sp),),
                    ],
                  ),
                ),
@@ -169,7 +175,7 @@ class RideDetails extends StatelessWidget {
          ),
           SizedBox(height: 40,),
           Container(
-            height: 40,
+            height: 40.h,
             width: MediaQuery.of(context).size.width*0.7,
             decoration: BoxDecoration(
               color: Colors.blueGrey.withOpacity(0.2),
@@ -179,9 +185,9 @@ class RideDetails extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.chat_sharp,size: 20,color: Colors.black.withOpacity(0.8),),
-            SizedBox(width: 5,),
-            Text("Support")
+                Icon(Icons.chat_sharp,size: 20.sp,color: Colors.black.withOpacity(0.8),),
+            SizedBox(width: 5.w,),
+            Text("Support",style: Theme.of(context).textTheme.bodySmall,)
             ]),
           )
 

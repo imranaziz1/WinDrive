@@ -1,23 +1,52 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:win_drive/Constants/colors.dart';
 
 import 'Login/login_screen.dart';
-import 'WelcomeScreen/welcome_screen.dart';
 
 void main() { runApp(MyApp());}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    return ScreenUtilInit(
+        designSize: const Size(360, 756),
+    minTextAdapt: true,
+    splitScreenMode: true,
+    builder: (context , child) {
+
     return MaterialApp(
 theme: ThemeData(
   primaryColor: Constants.kPrimaryColor,
+  fontFamily: Constants.kFontFamily,
+  textTheme: TextTheme(
+    bodyLarge: GoogleFonts.dmSans(
+      fontWeight: FontWeight.w800,
+      fontSize: 25.sp,
+      color: Colors.black,
+    ),
+    bodyMedium: GoogleFonts.dmSans(
+      fontWeight: FontWeight.w300,
+      fontSize: 20.sp,
+      color: Colors.white,
+    ),
+
+    bodySmall:GoogleFonts.dmSans(
+      fontWeight: FontWeight.w300,
+      fontSize: 16.sp,
+      color: Colors.black,
+    ),
+
+
+  ),
+
 
 ),
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,
-    );
+    );});
   }
 }
 

@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:win_drive/CustomButtons/custom_button.dart';
 import 'package:win_drive/MainPage/vehicle_container.dart';
 
@@ -23,7 +24,8 @@ class BottomMainContainer extends StatelessWidget {
           borderRadius: BorderRadius.circular(30),
         ),
         height: screenSize.height * 0.5,
-        child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
           child: new Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -88,37 +90,45 @@ class BottomMainContainer extends StatelessWidget {
                 height: 2,
               ),
               CustomTextField(
+                context: context,
                   initialTitle: "Current Location",
-                  icon: Icons.center_focus_strong,
+                  icon: Icons.circle_outlined,
                   onClick: () {}),
               CustomTextField(
+                context: context,
                   initialTitle: "Destination",
-                  icon: Icons.center_focus_strong,
+                  icon: Icons.circle_outlined,
                   onClick: () {}),
               TextFormField(
                 onTap: (){
 
                 },
+
                 cursorColor: Colors.teal,
                 initialValue: "Offer your fare",
-                maxLength: 20,
+                // maxLength: 20,
                 decoration:
                 InputDecoration(
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Theme.of(context).primaryColor)),
                   contentPadding: EdgeInsets.zero,
                   icon: Text("PKR",style: TextStyle(
-                    color: Colors.blue,
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 15
                   ),),
 
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFF6200EE)),
+
                   ),
                 ),
-              ),
+
               CustomTextField(
+                context: context,
+
                   initialTitle: "Comment and wishes",
                   icon: Icons.chat,
                   onClick: () {}),
-              CustomButton(title: "Find a driver", onClick: (){}),
+              SizedBox(height: 20.h,),
+              CustomButton(title: "Find a driver",context: context, onClick: (){}),
             ],
           ),
         ),

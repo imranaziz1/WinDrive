@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 Widget CustomButton({
   required String title,
   // required IconData icon,
   required VoidCallback onClick,
+  required BuildContext context,
 
 }) {
   return InkWell(
@@ -12,8 +14,8 @@ Widget CustomButton({
     child: Container(
 
       alignment: Alignment.center,
-      height: 50,
-      width: 200,
+      height: 50.h,
+      width: 300.w,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
         color: Colors.teal,
@@ -25,11 +27,7 @@ Widget CustomButton({
           Text(
             title,
             textAlign: TextAlign.center,
-            style: GoogleFonts.dmSans(
-              color: Color(0xff06161C),
-              fontSize: 20,
-              fontWeight: FontWeight.w800,
-            ),
+            style:Theme.of(context).textTheme.bodyMedium
           ),
         ],
       ),),
