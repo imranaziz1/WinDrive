@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../SelectRole/role.dart';
+import '../Constants/colors.dart';
+import '../MainPage/home_page.dart';
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
 
@@ -45,11 +46,17 @@ class WelcomeScreen extends StatelessWidget {
                 Text(
                   'Welcome to winDriver!',
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.dmSans(
-                    color: Color(0xff06161C),
+                  style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.w800,
+                    fontFamily: Constants.kFontFamily
                   ),
+                  // style: GoogleFonts.dmSans(
+                  //
+                  //   color: Color(0xff06161C),
+                  //   fontSize: 24,
+                  //   fontWeight: FontWeight.w800,
+                  // ),
                 ),
                 SizedBox(height: 20,),
                 Text(
@@ -90,7 +97,7 @@ class WelcomeScreen extends StatelessWidget {
                   height: 55,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectRole()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
 
 
                     },

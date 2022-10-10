@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:win_drive/SelectRole/role.dart';
 import 'package:win_drive/WelcomeScreen/welcome_screen.dart';
 import 'package:win_drive/Widgets/add_location_dialog.dart';
 class CityLocationPicker extends StatelessWidget {
