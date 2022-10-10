@@ -55,12 +55,13 @@ class _DrawerPageState extends State<DrawerPage> {
 
                       ),
                     ),
-                  ),
+                  ),)),),
 
             Divider(
               height: 1,
               thickness: 2,
-            ),SizedBox(height: 20.h,),
+            ),
+                  SizedBox(height: 20.h,),
             ListTile(
               selectedTileColor: Colors.black12,
               selected: widget.SelectedTab=='city'?true:false,
@@ -178,9 +179,6 @@ class _DrawerPageState extends State<DrawerPage> {
               thickness: 2,
             ),
             SizedBox(height: 10,),
-                ],
-              ),
-            ),
             CustomButton(
 
                 title: "Driver mode",
@@ -212,8 +210,12 @@ class _DrawerPageState extends State<DrawerPage> {
 
               ],
             ),
-          ],
-        ),
+                ],
+              ),
+
+
+
+
 
       ),
     );
