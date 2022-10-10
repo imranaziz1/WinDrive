@@ -67,90 +67,6 @@ class _DrawerPageState extends State<DrawerPage> {
                       ),
                     ),
                   ),
-                  Divider(
-                    height: 20,
-                    thickness: 2,
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.location_city),
-                    title: Text('City'),
-                    selectedTileColor: Colors.black12,
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomePage()));
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.access_time),
-                    title: Text('Request history'),
-                    selectedTileColor: Colors.black12,
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => RequestHistory()));
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.blur_circular_outlined),
-                    title: Text('Intercity'),
-                    selectedTileColor: Colors.black12,
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomePage()));
-                    },
-                  ),
-                  // ListTile(
-                  //   leading: Icon(Icons.fire_truck_sharp),
-                  //   title: Text('Truck New'),
-                  //   selectedTileColor: Colors.black12,
-                  //   onTap: () {
-                  //     Navigator.push(context,
-                  //         MaterialPageRoute(builder: (context) => TruckNew()));
-                  //   },
-                  // ),
-                  ListTile(
-                    leading: Icon(Icons.health_and_safety),
-                    title: Text('Safety'),
-                    selectedTileColor: Colors.black12,
-                    onTap: () {
-                      Navigator.push(
-                          context, MaterialPageRoute(builder: (context) => Safety()));
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.settings),
-                    title: Text('Setting'),
-                    selected: true,
-                    selectedTileColor: Colors.black12,
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => SettingScreen()));
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.error_outline_outlined),
-                    title: Text('FAQ'),
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => FaqScreen()));
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.message_rounded),
-                    title: Text('Support'),
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Support()));
-                    },
-                  ),
-                  Divider(
-                    height: 2,
-                    thickness: 2,
-                  ),
-
-
-                ],
-              ),
-            ),
 
             Divider(
               height: 5,
@@ -273,6 +189,9 @@ class _DrawerPageState extends State<DrawerPage> {
               thickness: 2,
             ),
             SizedBox(height: 10,),
+                ],
+              ),
+            ),
             CustomButton(
 
                 title: "Driver mode",
