@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:win_drive/CustomButtons/custom_button.dart';
 import 'package:win_drive/FAQ/faq.dart';
 import 'package:win_drive/Registration/registration.dart';
@@ -14,8 +13,8 @@ import '../Setting/setting_screen.dart';
 class DrawerPage extends StatefulWidget {
 
   String? SelectedTab;
-   DrawerPage({Key? key,
-     this.SelectedTab,
+  DrawerPage({Key? key,
+    this.SelectedTab,
   }) : super(key: key);
 
   @override
@@ -30,46 +29,65 @@ class _DrawerPageState extends State<DrawerPage> {
     return Container(
 
       width: screenSize.width*0.85,
-     // height: screenSize.height*0.85,
+      // height: screenSize.height*0.85,
       child: Drawer(
         child: Column(
 
           children: [
-            InkWell(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => BasicInfo()));
-              },
-              child: ListTile(
-                selectedTileColor: Colors.pink.shade300,
-                title: Text("User Name",style: Theme.of(context).textTheme.bodySmall,),
-                trailing:  Icon(Icons.navigate_next,),
-                leading: CircleAvatar(
-                  child: Container(
-                    width: 200,
-                    height: 200,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/imran/user.png'),
-                        fit: BoxFit.cover,
+            Container(
+              height: screenSize.height*0.1,
 
+              child: ListView(
+                padding: EdgeInsets.zero,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 11.0),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => BasicInfo()));
+                      },
+                      child: ListTile(
+                        selectedTileColor: Colors.pink.shade300,
+                        title: Text("User Name"),
+                        trailing:  Icon(Icons.navigate_next),
+                        leading: CircleAvatar(
+                          child: Container(
+                            width: 200,
+                            height: 200,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/imran/user.png'),
+                                fit: BoxFit.cover,
+                              ),
+                              borderRadius: BorderRadius.circular(13.9),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                  ),)),),
+                  ),
 
-            Divider(
-              height: 1,
-              thickness: 2,
+
+                  Divider(
+                    height: 2,
+                    thickness: 2,
+                  ),
+
+
+                ],
+              ),
             ),
-                  SizedBox(height: 20.h,),
+
+
             ListTile(
               selectedTileColor: Colors.black12,
               selected: widget.SelectedTab=='city'?true:false,
               leading: Icon(Icons.location_city),
-              title: Text('City',style:Theme.of(context).textTheme.bodySmall,),
+              title: Text('City'),
               onTap: () {
-    Navigator.push(context,
-    MaterialPageRoute(builder: (context) => HomePage()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomePage()));
 
                 setState((){
                   widget.SelectedTab = 'city';
@@ -79,7 +97,7 @@ class _DrawerPageState extends State<DrawerPage> {
             ),
             ListTile(
               leading: Icon(Icons.access_time),
-              title: Text('Request history',style:Theme.of(context).textTheme.bodySmall,),
+              title: Text('Request history'),
               selectedTileColor: Colors.black12,
               selected: widget.SelectedTab=='history'?true:false,
 
@@ -96,7 +114,7 @@ class _DrawerPageState extends State<DrawerPage> {
             ),
             ListTile(
               leading: Icon(Icons.reduce_capacity_outlined),
-              title: Text('Intercity',style: Theme.of(context).textTheme.bodySmall,),
+              title: Text('Intercity'),
               selectedTileColor: Colors.black12,
               selected: widget.SelectedTab=='intercity'?true:false,
 
@@ -112,7 +130,7 @@ class _DrawerPageState extends State<DrawerPage> {
             ),
             ListTile(
               leading: Icon(Icons.health_and_safety),
-              title: Text('Safety',style:Theme.of(context).textTheme.bodySmall,),
+              title: Text('Safety'),
               selectedTileColor: Colors.black12,
               selected: widget.SelectedTab=='safety'?true:false,
 
@@ -128,7 +146,7 @@ class _DrawerPageState extends State<DrawerPage> {
             ),
             ListTile(
               leading: Icon(Icons.settings),
-              title: Text('Setting',style:Theme.of(context).textTheme.bodySmall,),
+              title: Text('Setting'),
               selectedTileColor: Colors.black12,
               selected: widget.SelectedTab=='setting'?true:false,
 
@@ -144,7 +162,7 @@ class _DrawerPageState extends State<DrawerPage> {
             ),
             ListTile(
               leading: Icon(Icons.error_outline_outlined),
-              title: Text('FAQ',style:Theme.of(context).textTheme.bodySmall,),
+              title: Text('FAQ'),
               selected: widget.SelectedTab=='faq'?true:false,
               selectedTileColor: Colors.black12,
 
@@ -160,7 +178,7 @@ class _DrawerPageState extends State<DrawerPage> {
             ),
             ListTile(
               leading: Icon(Icons.message_rounded),
-              title: Text('Support',style:Theme.of(context).textTheme.bodySmall,),
+              title: Text('Support'),
               selected: widget.SelectedTab=='support'?true:false,
               selectedTileColor: Colors.black12,
 
@@ -174,17 +192,20 @@ class _DrawerPageState extends State<DrawerPage> {
                     MaterialPageRoute(builder: (context) => Support()));
               },
             ),
+            SizedBox(height: 30,),
+
             Divider(
               height: 2,
               thickness: 2,
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: 30,),
             CustomButton(
 
                 title: "Driver mode",
-                context: context,
-                onClick: () =>
-                    MaterialPageRoute(builder: (context) => Registration())),
+                onClick: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Registration()));
+                }, context: context,),
             SizedBox(height: 20,),
 
             Row(
@@ -210,12 +231,8 @@ class _DrawerPageState extends State<DrawerPage> {
 
               ],
             ),
-                ],
-              ),
-
-
-
-
+          ],
+        ),
 
       ),
     );
